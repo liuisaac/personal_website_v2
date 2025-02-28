@@ -1,0 +1,40 @@
+(function autoScroll() {
+  const breakpoints = [0, 900, 1800, 2600, 3400, 0]; // Define scroll breakpoints in pixels
+  const scrollDuration = 2000; // Duration for each scroll segment in milliseconds
+
+  let currentIndex = 0;
+  let startTime = null;
+
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function scroll() {
+    if (currentIndex >= breakpoints.length) return;
+
+    const targetPosition = breakpoints[currentIndex];
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / scrollDuration, 1);
+      const easedProgress = easeInOutQuad(progress);
+
+      window.scrollTo(0, startPosition + distance * easedProgress);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        currentIndex++;
+        startTime = null; // Reset startTime for the next segment
+        setTimeout(scroll, 5000); // Optional delay between segments
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  scroll();
+})();

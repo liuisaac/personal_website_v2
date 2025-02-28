@@ -18,10 +18,44 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+.center {
+  @apply flex justify-center items-center
+}
+
+.col {
+  @apply flex flex-col
+}
+
+.row {
+  @apply flex flex-row
+}
+
+.col-center {
+  @apply flex flex-col justify-center items-center
+}
+
+.row-center {
+  @apply flex flex-row justify-center items-center
+}
+
+.dim-screen {
+  @apply relative w-screen h-screen
+}
+
+.header {
+  @apply font-black tracking-widest drop-shadow-white
 }
