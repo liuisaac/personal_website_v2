@@ -5,17 +5,17 @@ import Simulation from "@/components/ui/three-components/Simulation";
 import "./globals.css";
 
 const inconsolata = Inconsolata({
+    display: "swap",
     subsets: ["latin"],
     variable: "--font-inconsolata",
     weight: ["200", "400", "700"], // Choose the weights you need
-    display: "swap",
 });
 
 const poppins = Poppins({
+    display: "swap",
     subsets: ["latin"],
     variable: "--font-poppins",
     weight: ["300", "400", "600", "700"], // Choose the weights you need
-    display: "swap",
 });
 
 // export const metadata = {

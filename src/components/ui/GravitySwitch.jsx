@@ -38,7 +38,7 @@ const GravitySwitch = ({ gravity, toggleGravity }) => {
     );
 };
 
-const Arrow = ({ direction, isOn, className }) => {
+const Arrow = ({ className, direction, isOn }) => {
     const getPath = () => {
         switch (direction) {
             case "topLeft":

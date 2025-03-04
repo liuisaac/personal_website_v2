@@ -1,13 +1,13 @@
 import React from "react";
 
-const PageHeader = ({ children }) => {
+const PageHeader = ({ children, description, title }) => {
     return (
         <div className="top-0 z-20 w-[40em] mt-36">
-            <h1 className="header text-9xl mb-5">_projects</h1>
+            <h1 className="header text-9xl mb-5">{title}</h1>
             <span className="text-3xl text-slate w-full mt-10">
-                an aggregation of my projects, from hackathons to deployed PWAs built to scale
+                {description}
             </span>
-            { children }
+            {children}
         </div>
     );
 };

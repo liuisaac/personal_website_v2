@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "./../Img";
 
-const HomeIcon = ({ route, handleClick }) => {
+const HomeIcon = ({ handleClick, route }) => {
     return (
         <div
             className="absolute top-2 left-2 z-50 pointer-events-auto"

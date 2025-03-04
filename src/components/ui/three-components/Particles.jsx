@@ -12,7 +12,7 @@ import {
     ESTIMATED_MAX_SPEED,
 } from "../../../constants/sim_params";
 
-const Particles = React.memo(({ G, mouseInfluenceRadius, mouseGMultiplier }) => {
+const Particles = React.memo(({ G, mouseGMultiplier, mouseInfluenceRadius }) => {
     const particlesRef = useRef();
     const velocitiesRef = useRef();
     const { camera, size } = useThree();

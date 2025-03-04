@@ -6,7 +6,7 @@ import { useGLTF } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
 import { a as three } from "@react-spring/three";
 
-export default function ComputerMesh({ scale, open }) {
+export default function ComputerMesh({ open, scale }) {
     const [videoTexture, setVideoTexture] = useState(null);
     const [screenMaterial, setScreenMaterial] = useState(null);
 
@@ -29,20 +29,20 @@ export default function ComputerMesh({ scale, open }) {
     const [springProps] = useSpring(() => ({ open: Number(open) }), [open]);
 
     const hinge = springProps.open.to({
-        range: [0, 0.3, 0.7, 1.0],
-        output: [1.575, 0.7, 0.2, -0.3],
         extrapolate: "clamp",
+        output: [1.575, 0.7, 0.2, -0.3],
+        range: [0, 0.3, 0.7, 1.0],
     });
 
     const opphinge = springProps.open.to({
-        range: [0, 0.3, 0.7, 1.0],
-        output: [0, 0, 0.05, 0.1],
         extrapolate: "clamp",
+        output: [0, 0, 0.05, 0.1],
+        range: [0, 0.3, 0.7, 1.0],
     });
 
     const computer = useRef(null);
 
-    const { nodes, materials } = useGLTF("/mac-draco.glb");
+    const { materials, nodes } = useGLTF("/mac-draco.glb");
 
     const isModelLoading = !nodes || !materials;
 
@@ -55,17 +55,6 @@ export default function ComputerMesh({ scale, open }) {
             clonedMaterial.emissiveMap = videoTexture;
 
             const saturationShader = {
-                uniforms: {
-                    tDiffuse: { value: videoTexture },
-                    amount: { value: 1 },
-                },
-                vertexShader: `
-                    varying vec2 vUv;
-                    void main() {
-                        vUv = uv;
-                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                    }
-                `,
                 fragmentShader: `
                     uniform sampler2D tDiffuse;
                     uniform float amount;
@@ -76,6 +65,17 @@ export default function ComputerMesh({ scale, open }) {
                         float average = (color.r + color.g + color.b) / 3.0;
                         color.rgb += (color.rgb - vec3(average)) * amount;
                         gl_FragColor = color;
+                    }
+                `,
+                uniforms: {
+                    amount: { value: 1 },
+                    tDiffuse: { value: videoTexture },
+                },
+                vertexShader: `
+                    varying vec2 vUv;
+                    void main() {
+                        vUv = uv;
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
                     }
                 `,
             };

@@ -17,15 +17,15 @@ const LaptopScene = () => {
         <div className="absolute top-0 right-0">
             <Canvas
                 style={{
-                    width: "60vw",
-                    height: "100vh",
                     backgroundColor: "transparent",
+                    height: "100vh",
                     marginTop: "5em",
+                    width: "60vw",
                 }}
-                camera={{ position: [12, 10, 20], fov: 70, zoom: 1.3 }}
+                camera={{ fov: 70, position: [12, 10, 20], zoom: 1.3 }}
             >
                 <ComputerMesh
-                    scale={{ width: 1000, height: 1000 }}
+                    scale={{ height: 1000, width: 1000 }}
                     open={open}
                 />
                 <pointLight position={[0, 100, 100]} intensity={1000} />

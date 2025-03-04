@@ -4,16 +4,12 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Svg from "./Svg";
 
-const Button = ({ icon, primary, label, textStyles, href }) => {
+const Button = ({ href, icon, label, primary, textStyles }) => {
     const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
     const handleNavigation = (path) => {
         router.push(`${path}`);
     };
-
-    useEffect(() => {
-        console.log(isHovered);
-    }, [isHovered]);
 
     return (
         <div
@@ -29,7 +25,7 @@ const Button = ({ icon, primary, label, textStyles, href }) => {
             onClick={() => handleNavigation(href)}
         >
             <Svg src={icon} className="w-7 h-7 mr-2" color={isHovered ? "#000000" : "#FFFFFF"} />
-            <span className={textStyles}>{label}</span>
+            <span className={`text-center ${textStyles}`}>{label}</span>
         </div>
     );
 };

@@ -39,8 +39,8 @@ const Simulation = ({ children }) => {
                 <div className="absolute inset-0">
                     <Canvas
                         className="w-full h-full"
-                        camera={{ position: [0, 0, 1], fov: 30, zoom: ZOOM }}
-                        style={{ width: "100%", height: "100%" }}
+                        camera={{ fov: 30, position: [0, 0, 1], zoom: ZOOM }}
+                        style={{ height: "100%", width: "100%" }}
                     >
                         <ambientLight />
                         <Particles

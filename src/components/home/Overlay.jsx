@@ -5,7 +5,7 @@ import WelcomeMessage from "./WelcomeMessage";
 
 const Overlay = () => {
     return (
-        <div className="w-[40em] col items-start justify-center z-30">
+        <div className="w-[40em] col items-start justify-center z-30 h-screen">
             <div className="row-center">
                 <Img src="/pfp.svg" alt="pfp" className=" w-24 h-24 z-10" />
                 <div className="col justify-center items-start ml-4">

@@ -1,13 +1,14 @@
 import React from "react";
 import Img from "./Img";
 
-const GridItem = ({ src, href, header, subheader }) => {
+const GridItem = ({ header, href, src, subheader, tech_stack }) => {
     return (
         <div className="w-full aspect-[calc(4/5)] bg-charcoal rounded-md overflow-hidden hover:scale-105 transition duration-200 ease-in-out cursor-pointer">
             <Img src={src} className={"w-full h-2/3"} objectFit="cover" />
             <div className="col ml-5">
-                <span className="font-bold text-xl mt-5">{header}</span>
-                <span>{subheader}</span>
+                <span className="font-bold text-2xl mt-8">{header}</span>
+                <span className="mt-2 text-slate">{subheader}</span>
+                <p>{tech_stack}</p>
             </div>
         </div>
     );
@@ -25,6 +26,7 @@ const Grid = ({ data }) => {
                             href={item.href}
                             header={item.header}
                             subheader={item.subheader}
+                            tech_stack={item.tech_stack}
                         />
                     );
                 }, [])}
