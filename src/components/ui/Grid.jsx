@@ -1,9 +1,11 @@
 import React from "react";
 import Img from "./Img";
-
+import { useRouter } from "next/navigation";
 const GridItem = ({ header, href, src, subheader, tech_stack }) => {
+    const router = useRouter();
     return (
-        <div className="w-full aspect-[calc(4/5)] bg-charcoal rounded-md overflow-hidden hover:scale-105 transition duration-200 ease-in-out cursor-pointer">
+        <div className="w-full aspect-[calc(4/5)] bg-charcoal rounded-md overflow-hidden hover:scale-105 transition duration-200 ease-in-out cursor-pointer"
+            onClick={() => router.replace(`?id=${href}`, { scroll: false })}>
             <Img src={src} className={"w-full h-2/3"} objectFit="cover" />
             <div className="col ml-5">
                 <span className="font-bold text-2xl mt-8">{header}</span>

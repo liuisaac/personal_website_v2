@@ -1,0 +1,18 @@
+{
+    "date": "2024",
+    "id": "polaris",
+    "tech_stack": "React.js, Node.js, MongoDB, MappedIn SDK, Voiceflow",
+    "title": "Polaris",
+    "thumbnail": "/thumbnails/polaris.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Polaris is my Hack the North 2024 submission. It's a one-stop event companion app powered by the Mappedin API, a \"north star\" to orient you throughout chaotic events. Polaris offer real-time navigation, personalized event recommendations, mentor tracking, and even snack truck locations. A localized front-back photo pair system, inspired by BeReal, was implemented to add a personal and authentic touch to each distinct location. Whether it’s optimizing schedules, finding mentors, or knowing where others are in real-time, this project aims to ensure a seamless and immersive experience at any large-scale event.",
+            "href": "https://devpost.com/software/polaris-j9pcs2"
+        },
+        {
+            "subtitle": "Key Work 🔑",
+            "body": "• Designed and implemented the whole UI and frontend with Figma and React\n\n  • Integrated the frontend and backend layers, enabling real-time data flow and image transfers across the application\n\n • Designed simple storage of image pairs in MongoDB using multer as buffers\n\n • Cut average workshop search times by over 2.84x by integrating VoiceFlow's LLM into search functions \n\n • Integrated MappedIn subapp for indoor navigation and waypoints"
+        }
+    ]
+}

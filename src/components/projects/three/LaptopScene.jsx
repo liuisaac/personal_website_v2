@@ -6,6 +6,24 @@ import ComputerMesh from "./ComputerMesh";
 
 const LaptopScene = () => {
     const [open, setOpen] = useState(false);
+    const [width, setWidth] = useState(1000);
+
+    useEffect(() => {
+        console.log("LaptopScene mounted");
+        console.log("Initial width:", window.innerWidth);
+        setWidth(Math.min(window.innerWidth * 2/3, 1000));
+
+        const handleResize = () => {
+            setWidth(Math.min(window.innerWidth * 2/3, 1000));
+            console.log("Resized width:", window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         setTimeout(() => {
@@ -19,13 +37,13 @@ const LaptopScene = () => {
                 style={{
                     backgroundColor: "transparent",
                     height: "100vh",
-                    marginTop: "5em",
+                    marginTop: "10em",
                     width: "60vw",
                 }}
                 camera={{ fov: 70, position: [12, 10, 20], zoom: 1.3 }}
             >
                 <ComputerMesh
-                    scale={{ height: 1000, width: 1000 }}
+                    scale={{ height: width, width: width }}
                     open={open}
                 />
                 <pointLight position={[0, 100, 100]} intensity={1000} />

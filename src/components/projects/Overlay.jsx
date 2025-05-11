@@ -15,11 +15,11 @@ import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 import FadeWrapper from "../ui/FadeWrapper";
 
-const ButtonWrapper = ({ children, router, pid }) => {
+const ButtonWrapper = ({ children, pid, router }) => {
     const handleClick = () => {
         const params = new URLSearchParams(window.location.search);
         params.set("id", pid);
-        router.push(`?${params.toString()}`);
+        router.replace(`?${params.toString()}`, { scroll: false });
     };
 
     return <div onClick={handleClick}>{children}</div>;
@@ -31,6 +31,8 @@ const Overlay = () => {
     const [markdownContent, setMarkdownContent] = useState("");
 
     useEffect(() => {
+        if (!searchParams) return;
+        
         try {
             const article = articles.find(
                 (article) => article.id === searchParams.get("id")
@@ -59,7 +61,7 @@ const Overlay = () => {
                     className="top-0 left-0 dim-screen z-50 col-center"
                     style={{ position: "fixed" }}
                     onClick={() => {
-                        router.push(`projects`);
+                        router.replace(`projects`, { scroll: false });
                     }}
                 >
                     <div
@@ -76,11 +78,13 @@ const Overlay = () => {
             <div className="top-0 relative dim-screen col-center">
                 <PageContainer>
                     <div className="w-full col items-start justify-start">
-                        <LaptopScene />
+                        <div className="">
+                            <LaptopScene />
+                        </div>
                         <PageHeader
                             title={"_projects"}
                             description={
-                                "an aggregation of my projects, from hackathons to deployed PWAs built to scale"
+                                "an aggregation of my just-for-fun stuff, from hackathons to fully deployed apps"
                             }
                         >
                             <div className="text-3xl text-white w-full col mt-36 gap-2">

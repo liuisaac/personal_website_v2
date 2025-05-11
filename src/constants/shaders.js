@@ -11,8 +11,8 @@ export const vertexShader = `
 
     // Gradient: black (slow) -> red/orange (medium) -> white (fast)
     vec3 black = vec3(0.1, 0.1, 0.1);
-    vec3 mid   = vec3(0.3, 0.3, 0.3);
-    vec3 white = vec3(0.5, 0.5, 0.55);
+    vec3 mid   = vec3(0.2, 0.2, 0.2);
+    vec3 white = vec3(0.35, 0.35, 0.4);
 
     if (t < 0.5) {
       float subT = t / 0.5;

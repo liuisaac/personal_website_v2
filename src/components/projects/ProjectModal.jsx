@@ -14,7 +14,7 @@ const ProjectModal = ({ content }) => {
         <div className="w-[70em] bg-charcoal my-16 rounded-xl col p-16">
             <div
                 className="row gap-2 text-slate cursor-pointer"
-                onClick={() => router.push(`projects`)}
+                onClick={() => router.replace(`projects`, { scroll: false })}
             >
                 <ArrowLeftIcon className="" />
                 <span className="text-xl text-center">back_to_projects</span>

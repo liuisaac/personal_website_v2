@@ -1,0 +1,19 @@
+{
+    "date": "2021",
+    "id": "bomb-party",
+    "tech_stack": "Python, OpenCV, Tesseract OCR, Pynput",
+    "title": "Bomb Party Bot",
+    "thumbnail": "/grid/bomb-party.png",
+    "body": [
+      {
+        "subtitle": "Project Overview 🎮",
+        "body": "This Python-based automation bot was designed to dominate the Bomb Party word game. It uses Tesseract OCR to detect the given letter set on screen and leverages Pynput to simulate keystrokes, instantly typing valid words from a preloaded dictionary to win rounds effortlessly."
+      },
+      {
+        "subtitle": "How It Works ⚙️",
+        "body": "The bot captures the game screen, extracts the prompt using OCR, and searches a dictionary for the first matching word. Once found, it simulates keystrokes using Pynput to type the answer within milliseconds—essentially automating and optimizing human reflexes.",
+        "src": "/images/bomb-party/bruh.png"
+      }
+    ]
+  }
+  

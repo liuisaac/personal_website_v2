@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Testimonial = ({ src, body, name, qualifier }) => {
+const Testimonial = ({ body, name, qualifier, src }) => {
     return (
         <div className="col w-[30em] bg-black p-4 rounded-xl border-1 border-white bg-opacity-40 backdrop-blur-lg">
             <div className="row justify-between">
@@ -17,8 +17,8 @@ const Testimonial = ({ src, body, name, qualifier }) => {
             </div>
             <p className="mt-2 text-slate">
                 Isaac is extremely talented in Full Stack development. His
-                impact in leading the website for Canada's largest robotics
-                tournament is something I would've expected from a full CS
+                impact in leading the website for Canada&apos;s largest robotics
+                tournament is something I would&apos;ve expected from a full CS
                 graduate. His work is beyond satisfactory, and his time
                 management and response time is excellent. As a result of his
                 work, we have been able to bring in more attention and present

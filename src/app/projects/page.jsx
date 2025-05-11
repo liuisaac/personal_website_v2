@@ -1,11 +1,13 @@
 import FadeWrapper from "@/components/ui/FadeWrapper";
 import Overlay from "@/components/projects/Overlay";
-import React from "react";
+import { Suspense, React} from "react";
 
 const page = () => {
     return (
         <FadeWrapper>
-            <Overlay />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Overlay />
+            </Suspense>
         </FadeWrapper>
     );
 };

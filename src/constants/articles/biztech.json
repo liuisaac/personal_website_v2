@@ -1,0 +1,30 @@
+{
+    "date": "2025",
+    "id": "biztech",
+    "tech_stack": "Next.js, TS, Node.js, Docker, AWS(DynamoDB, S3, Lambda), Firebase",
+    "title": "UBC Biztech",
+    "thumbnail": "/thumbnails/biztech.png",
+    "body": [
+        {
+            "subtitle": "Experience Overview 📋",
+            "body": "UBC BizTech is the largest technology club at the University of British Columbia, dedicated to bridging the gap between business, technology, and students from all backgrounds. Through a wide range of events—from conferences and case competitions to tech panels and hackathons, BizTech's events provide valuable opportunities for students to engage, connect, and network with industry professionals. As a Junior Developer, I support the club’s mission by contributing to the development of internal tools and public-facing platforms that streamline operations and enhance event experiences for our 1,500+ members.",
+            "src": "/images/biztech/team.png",
+            "href": "https://www.ubcbiztech.com/"
+        },        
+        {
+            "subtitle": "ProductX 2025 🚀",
+            "body": "• Implemented Judging Portal interface for both judges and hacker views\n\n • Refactored core frontend components to streamline state management, improving the\n\n • Wrote migration scripts to convert existing registration data to the judging tables in DynamoDB",        
+            "src": ""
+        },        
+        {
+            "subtitle": "Blueprint 2025 💳",
+            "body": "• Implemented the complete NFC scanning user flow from badge tap to auth guards and profile redirection \n\n • Hit registration API to fetch profile data and display scanned user's information in real-time \n\n • Enabled workshop check-ins and partner booth scans with custom flows \n\n• Incorporated fallback and edge case handling for unmatched or incomplete NFC data",        
+            "src": ""
+        },
+        {
+            "subtitle": "Dataverse 2024 📊",
+            "body": "• Authored feature doc for the Data Challenge, including architecture, goals, implementation details, and release plan \n\n • Defined and structured key user stories, edge cases, and basic smoke tests to guide both frontend and backend development \n\n • Implemented the frontend for the Data Challenge, with support for autograded feedback and live leaderboard updates",
+            "src": ""
+        }
+    ]
+}

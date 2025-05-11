@@ -1,0 +1,14 @@
+{
+    "date": "2024",
+    "id": "mpga",
+    "tech_stack": "Java, Java Swing, JUnit",
+    "title": "MPGA PhotoEditor",
+    "thumbnail": "/thumbnails/mpga.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "This application is a lightweight color range filter tool for PNG files, aimed at simplifying the process of modifying image backgrounds (specifically company logos). Users can upload multiple photos, set a specific color range, and apply changes such as making matching pixels transparent or replacing them with a new color. The tool is designed with graphic designers and frontend developers in mind, especially those seeking free alternatives to expensive and bulky commercial software.",
+            "href": "https://github.com/liuisaac/MPGA-PhotoEditor"
+        }
+    ]
+}

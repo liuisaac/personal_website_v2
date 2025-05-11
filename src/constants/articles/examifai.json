@@ -1,0 +1,17 @@
+{
+    "date": "2023",
+    "id": "examifai",
+    "tech_stack": "React.js, Python, Flask, MongoDB, Gumloop",
+    "title": "Examif.AI",
+    "thumbnail": "/grid/examifai.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Examif.AI is an AI-powered web application designed to make learning computer science more accessible and personalized for students at the University of British Columbia. Inspired by the diverse student body and the challenges of grasping technical concepts, the app transforms course content slides into interactive quizzes using ChatGPT, facilitated by AgentHub_’s (now Gumloop's) integration technology."
+        },
+        {
+            "subtitle": "Tech Stack 🛠️",
+            "body": "Built using React.js, Tailwind CSS, and a Python Flask backend, Examif.AI offers an intuitive and adaptable learning experience for users with varying backgrounds and learning styles. Key challenges included backend-frontend communication and effective prompt engineering for generating high-quality quiz questions."
+        }
+    ]
+}

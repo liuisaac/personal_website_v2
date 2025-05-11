@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Particles from "./Particles";
 import {
@@ -10,6 +10,7 @@ import {
     INITIAL_MOUSE_INFLUENCE_RADIUS,
 } from "../../../constants/sim_params";
 import Controls from "../Controls";
+import { usePathname } from "next/navigation";
 
 const Simulation = ({ children }) => {
     const positiveG = INITIAL_G;
@@ -17,23 +18,37 @@ const Simulation = ({ children }) => {
     const [gravity, setGravity] = useState(positiveG);
     const [gravityToggle, setGravityToggle] = useState(true);
     const [mouseGravity, setMouseGravity] = useState(-0.2);
+    const route = usePathname();
 
-    const toggleGravity = () => {
-        if (gravity === positiveG) {
-            setGravity(negativeG);
-            setGravityToggle(false);
-            setMouseGravity(0.2);
+    useEffect(() => {
+        if (route != "/") {
+            toggleGravity();
         } else {
             setGravity(positiveG);
             setGravityToggle(true);
             setMouseGravity(-0.2);
+        }
+    }, [route]);
+
+    const toggleGravity = () => {
+        if (gravity != positiveG && route == "/") {
+            setGravity(positiveG);
+            setGravityToggle(true);
+            setMouseGravity(-0.2);
+        } else {
+            setGravity(negativeG);
+            setGravityToggle(false);
+            setMouseGravity(0.2);
         }
     };
 
     return (
         <section className="dim-screen">
             <div className="fixed dim-screen z-50 pointer-events-none">
-                <Controls gravity={gravityToggle} toggleGravity={toggleGravity}/>
+                <Controls
+                    gravity={gravityToggle}
+                    toggleGravity={toggleGravity}
+                />
             </div>
             <main className="fixed top-0 left-0 w-screen h-screen bg-black z-10">
                 <div className="absolute inset-0">

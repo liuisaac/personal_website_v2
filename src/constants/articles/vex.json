@@ -1,0 +1,26 @@
+{
+    "date": "2022",
+    "id": "vex",
+    "tech_stack": "C++, VEX V5, PROS, LVGL",
+    "title": "210X Robotics Autonomous",
+    "thumbnail": "/grid/vex-robotics.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "As part of 210X, a competitive VRCHS team, I contributed to the development of our autonomous and mechanical systems that helped us win the 2022 Alberta Provincial Championship and recieve the CREATE Award at the VEX Robotics 2022 World Championship."
+        },
+        {
+            "subtitle": "Autonomous Programming and Path Following 🤖",
+            "body": "I implemented custom PID control loops for precise movement and turning, tuning them for various field scenarios. For advanced motion planning, I developed a Pure Pursuit algorithm that allowed our robot to follow curved trajectories smoothly and recover from disturbances during autonomous routines.",
+            "src": "/images/vex/pp.webp"
+        },
+        {
+            "subtitle": "Sensor Usage and Kalman Filter Investigation 🧠",
+            "body": "To improve localization accuracy, I experimented with the integration of a Kalman filter with inertial measurement units and encoders. Though not fully deployed, this investigation was an interesting exercise in probabilistic robotics and estimation theory."
+        },
+        {
+            "subtitle": "Mechanical Contributions ⚙️",
+            "body": "On the mechanical side, I co-designed and built a 2-speed pneumatic transmission system to toggle between torque and speed modes during matches. I also contributed to a power take-off (PTO) system that allowed our lift to connect with our drivetrain giving us an effective 8-motor drive for torque. Additionally, I helped develop a passive elastic cascade slide arm for a 0.6 second goal rush."
+        }
+    ]
+}

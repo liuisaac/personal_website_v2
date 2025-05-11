@@ -1,0 +1,14 @@
+{
+    "date": "2024",
+    "id": "cyl",
+    "tech_stack": "Next.js, Node.js, MongoDB, Google Maps API",
+    "title": "Cache You Later",
+    "thumbnail": "/thumbnails/cyl.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Cache You Later is a gamified virtual geocaching app ideated during nwHacks 2024 that transforms everyday environments into an adventure. Inspired by the traditional treasure-hunting game of geocaching and AR games like Pokemon Go, the app allows users to discover, create, and share virtual “caches” hidden in real-world locations—all through their mobile devices. Users navigate a map, hunt for hidden caches, earn rewards, level up, and even leave behind location-bound notes for other players. The app is designed to foster community engagement, encourage exploration, and reconnect friends that seldom get the opportunity to set up often despite living in the same city.",
+            "href": "https://github.com/kevinxiao27/cacheyoulater"
+        }
+    ]
+}

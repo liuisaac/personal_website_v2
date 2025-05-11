@@ -1,0 +1,18 @@
+{
+    "date": "2024",
+    "id": "oniva",
+    "tech_stack": "React.js, Node.js, Express, MongoDB, Google Cloud Vision API",
+    "title": "Oniva",
+    "thumbnail": "/thumbnails/oniva.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Oniva is a omnichannel-integrated product discovery webpage for Arc'teryx that accesses and suggests catalog items via Arc'teryx product API. The primary function of the app is to suggest personalized hiking trails. It uses Google Cloud Vision API to extract the user's current outfit, allowing users to upload photos of what they're wearing and receive relevant outerwear recommendations and scorings. The webpage is designed to focus on enhancing the shopping experience for Arc'teryx customers.",
+            "href": "https://devpost.com/software/oniva"
+        },
+        {
+            "subtitle": "Key Work 🔑",
+            "body": "• Implemented UI wireframes into interactive frontends\n\n  • Integrated the frontend and backend layers, enabling image transfers across the application\n\n • Used Google Cloud Vision API to extract clothing item classifications from user-uploaded photos and Google Maps API to suggest personalized hiking trails"
+        }
+    ]
+}

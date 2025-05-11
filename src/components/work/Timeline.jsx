@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion, useInView, useSpring } from "framer-motion";
 import Img from "../ui/Img";
 
 const ExperienceMarker = () => {
@@ -12,13 +12,14 @@ const ExperienceMarker = () => {
 
 const TimelineMarker = ({ containerRef, scrollY }) => {
     const [innerHeight, setInnerHeight] = useState(0);
+    const [maxY, setMaxY] = useState(0);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setInnerHeight(window.innerHeight);
         }
     }, []);
-    
+
     const y = useSpring(0, {
         damping: 20,
         mass: 0.5,
@@ -32,22 +33,21 @@ const TimelineMarker = ({ containerRef, scrollY }) => {
 
     const getContainerTop = () => {
         if (!containerRef?.current) return innerHeight - 64;
-        return (
-            containerRef.current.getBoundingClientRect().top + scrollY
-        );
+        return containerRef.current.getBoundingClientRect().top + scrollY;
     };
 
-    let targetPosition = scrollY + innerHeight - getContainerTop() - 64;
+    const rawTarget = scrollY + innerHeight - getContainerTop() - 64;
 
     useEffect(() => {
-        targetPosition = scrollY + innerHeight - getContainerTop() - 64;
-        y.set(targetPosition);
-    }, [containerRef]);
+        setMaxY(prev => Math.max(prev, rawTarget));
+    }, [rawTarget]);
 
-    y.set(targetPosition);
+    useEffect(() => {
+        y.set(maxY);
+    }, [maxY]);
 
     const currentY = y.get();
-    const diff = Math.abs(targetPosition - currentY);
+    const diff = Math.abs(maxY - currentY);
     scale.set(diff > 50 ? 1.2 : 1);
 
     return (
@@ -67,6 +67,7 @@ const TimelineMarker = ({ containerRef, scrollY }) => {
         </>
     );
 };
+
 
 const Markers = () => {
     return (
@@ -112,6 +113,34 @@ const Description = ({ brief, date, description, location, title }) => {
     );
 };
 
+const Experience = ({ index, item }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        margin: "0px 0px 16px 0px",
+        once: true,
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+            <div className="mb-48 row">
+                <CompanyIcon key={index} src={item.src} />
+                <Description
+                    title={item.title}
+                    location={item.location}
+                    date={item.date}
+                    brief={item.brief}
+                    description={item.description}
+                />
+            </div>
+        </motion.div>
+    );
+};
+
 const Timeline = ({ data }) => {
     const [scrollY, setScrollY] = useState(0);
     const containerRef = useRef(null);
@@ -132,18 +161,7 @@ const Timeline = ({ data }) => {
         <div className="mt-24">
             <div className="absolute">
                 {data.map((item, index) => {
-                    return (
-                        <div className="mb-48 row">
-                            <CompanyIcon key={index} src={item.src} />
-                            <Description
-                                title={item.title}
-                                location={item.location}
-                                date={item.date}
-                                brief={item.brief}
-                                description={item.description}
-                            />
-                        </div>
-                    );
+                    return <Experience item={item} index={index} key={index} />;
                 })}
             </div>
 
@@ -153,15 +171,8 @@ const Timeline = ({ data }) => {
             >
                 {data.map((item, index) => {
                     return (
-                        <div key={index}>
-                            <Markers
-                                src={item.src}
-                                title={item.title}
-                                location={item.location}
-                                date={item.date}
-                                brief={item.brief}
-                                description={item.description}
-                            />
+                        <div key={index} >
+                            <Markers />
                         </div>
                     );
                 }, [])}

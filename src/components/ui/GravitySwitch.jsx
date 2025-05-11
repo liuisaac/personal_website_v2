@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const GravitySwitch = ({ gravity, toggleGravity }) => {
     return (
         <div
-            className="fixed top-0 right-0 mt-5 mr-5 cursor-pointer z-50 pointer-events-auto"
+            className="fixed top-0 right-0 mt-5 mr-5 cursor-pointer z-50 pointer-events-auto lg:flex hidden"
             onClick={toggleGravity}
         >
             <motion.div

@@ -1,0 +1,14 @@
+{
+    "date": "2024",
+    "id": "carbyne",
+    "tech_stack": "Java, Java Swing, JUnit",
+    "title": "Carbyne",
+    "thumbnail": "/thumbnails/oniva.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Simple, beautiful notes native to VSCode. (WIP)",
+            "href": "https://github.com/liuisaac/MPGA-PhotoEditor"
+        }
+    ]
+}

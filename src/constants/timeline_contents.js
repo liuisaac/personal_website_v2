@@ -23,6 +23,7 @@ const data = [
         src: "/timeline/cbx.png",
         title: "Software Engineer Intern",
     },
+    
 ];
 
 export default data;

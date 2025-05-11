@@ -1,0 +1,36 @@
+{
+    "date": "2025",
+    "id": "mecha-mayhem",
+    "tech_stack": "Next, React, Node, TS, Python, HTML/CSS, AWS (EC2, S3)",
+    "title": "Mecha Mayhem",
+    "thumbnail": "/thumbnails/mecha-mayhem.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "Mecha Mayhem is a 3-day-long international robotics competition seated in the heart of Calgary, Alberta. Over 200 of the top middle school, high school, and collegiate teams from around the world compete for limited spots at the VRC World Championship held in Dallas, Texas. This project's mission is to provide an engaging centralized platform for the over 3000 participants, fans, and supporters to access all the information they need about the event .",
+            "src": "/images/mecha-mayhem/mecha-people.jpg",
+            "href": "https://www.mechamayhem.ca/"
+        },
+        {
+            "subtitle": "Key Work 🔑",
+            "body": "• Designed and implemented full-stack architecture and automations \n\n  • Reduced LCP by > 90% by leveraging dynamic imports, slashing bundle sizes by more than 66% \n\n • Deployed the frontend on Vercel, backend on AWS EC2, AWS S3 for media storage, and Firebase Firestore for real-time NoSQL database\n\n • Automated match clips extraction from event livestreams using Tesseract OCR \n\n • Prototyped a mobile app for the event using React-Native \n\n • Attributed with helping raise over $20,000 in sponsorships annually"
+        },
+        {
+            "subtitle": "Frontend 💻",
+            "body": "• UI Designed in Figma \n\n • Implemented in Next.js, using Tailwind CSS and Framer-Motion for styling and animation\n\n • Configured Next.js middleware to proxy /api requests to the backend endpoint \n\n  • Optimized loading performance and bundle sizes with efficient asset management, SSR, and dynamic loading \n\n • Ensured accessibility (a11y) compliance with semantic HTML and ARIA roles",
+            "src": "/images/mecha-mayhem/figma.png"
+        },
+        {
+            "subtitle": "Backend & Stream Processing 💽",
+            "body": "• REST API built with Express.js and Firebase (Datastore mode), deployed on an Amazon EC2 instance\n\n • Used AWS S3 for file storage and Cloudflare for HTTPS + CDN performance\n\n • Configured reverse proxy routing to serve the API under /api while maintaining HTTPS integrity\n\n • Developed a Python-based livestream splitter to auto-segment match footage using Tesseract OCR + FFmpeg\n\n • Achieved accurate timestamp extraction and video slicing from 11+ hour robotics competition streams",        
+            "src": "",
+            "href": ""
+        },
+        {
+            "subtitle": "Project Organization 🚩",
+            "body": "",
+            "src": "",
+            "href": ""
+        }
+    ]
+}

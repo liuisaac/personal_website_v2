@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const ProjectSection = ({ subtitle, body, src, href }) => {
+const ProjectSection = ({ body, href, src, subtitle }) => {
     return (
         <div className=" my-8">
             {subtitle && (
