@@ -16,7 +16,7 @@ const Overlay = () => {
                 ></PageHeader>
             </div>
             <div className="row mt-24 gap-8">
-                <div className="col text-3xl tracking-widest gap-8">
+                <div className="col xl:text-3xl text-2xl tracking-widest gap-8">
                     <Link
                         className="underline font-bold"
                         href="mailto:liuisaac05@gmail.com"
@@ -42,7 +42,7 @@ const Overlay = () => {
                         _instagram
                     </Link>
                 </div>
-                <figure className="w-[1px] h-96 bg-slate" />
+                <figure className="w-[1px] h-96 bg-slate xl:flex hidden" />
                 <Testimonial src="/testimonials/justin.jpeg" />
             </div>
         </PageContainer>

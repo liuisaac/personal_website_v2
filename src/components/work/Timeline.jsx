@@ -81,7 +81,7 @@ const Markers = () => {
 
 const CompanyIcon = ({ src }) => {
     return (
-        <div className="w-56 h-48 overflow-hidden col-center">
+        <div className="w-56 h-48 overflow-hidden col-center md:!flex !hidden">
             <Img
                 src={src}
                 alt="Company Logo"
@@ -93,10 +93,10 @@ const CompanyIcon = ({ src }) => {
 
 const Description = ({ brief, date, description, location, title }) => {
     return (
-        <div className="ml-24">
-            <header className="font-bold text-4xl">{title}</header>
+        <div className="sm:ml-24 ml-12">
+            <header className="font-bold md:text-4xl sm:text-3xl text-2xl">{title}</header>
             <div className="row gap-5 text-slate font-semibold text-xl">
-                <span className="row-center gap-1">
+                <span className="sm:row-center hidden gap-1">
                     <Img src="/timeline/pin.svg" className="w-6 h-6" />
                     {location}
                 </span>
@@ -105,7 +105,7 @@ const Description = ({ brief, date, description, location, title }) => {
                     {date}
                 </span>
             </div>
-            <div className="text-xl mt-5 font-sans gap-2 col">
+            <div className="md:text-xl text-md mt-5 font-sans gap-2 col">
                 <p>{brief}</p>
                 <p>{description}</p>
             </div>
@@ -166,7 +166,7 @@ const Timeline = ({ data }) => {
             </div>
 
             <div
-                className="w-5 col items-center justify-start ml-64 relative"
+                className="w-5 col items-center justify-start md:ml-64 relative"
                 ref={containerRef}
             >
                 {data.map((item, index) => {

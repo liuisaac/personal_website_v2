@@ -3,7 +3,7 @@ import React from "react";
 
 const Testimonial = ({ body, name, qualifier, src }) => {
     return (
-        <div className="col w-[30em] bg-black p-4 rounded-xl border-1 border-white bg-opacity-40 backdrop-blur-lg">
+        <div className="xl:flex hidden flex-col w-[30em] bg-black p-4 rounded-xl border-1 border-white bg-opacity-40 backdrop-blur-lg">
             <div className="row justify-between">
                 <Image src="/testimonials/quote.svg" width={60} height={60} />
                 <figure className="p-1 bg-slate rounded-full">

@@ -11,7 +11,7 @@ const ProjectModal = ({ content }) => {
         console.log(content);
     }, []);
     return (
-        <div className="w-[70em] bg-charcoal my-16 rounded-xl col p-16">
+        <div className="2xl:w-[70em] xl:w-[50em] lg:w-[40em] w-[80vw] bg-charcoal my-16 rounded-xl col p-16">
             <div
                 className="row gap-2 text-slate cursor-pointer"
                 onClick={() => router.replace(`projects`, { scroll: false })}

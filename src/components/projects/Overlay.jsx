@@ -32,7 +32,7 @@ const Overlay = () => {
 
     useEffect(() => {
         if (!searchParams) return;
-        
+
         try {
             const article = articles.find(
                 (article) => article.id === searchParams.get("id")
@@ -78,7 +78,7 @@ const Overlay = () => {
             <div className="top-0 relative dim-screen col-center">
                 <PageContainer>
                     <div className="w-full col items-start justify-start">
-                        <div className="">
+                        <div className="md:flex hidden">
                             <LaptopScene />
                         </div>
                         <PageHeader
@@ -86,39 +86,37 @@ const Overlay = () => {
                             description={
                                 "an aggregation of my just-for-fun stuff, from hackathons to fully deployed apps"
                             }
-                        >
-                            <div className="text-3xl text-white w-full col mt-36 gap-2">
-                                <div className="row">
-                                    <span>featured_projects</span>
-                                    <div className="absolute ml-72 -mt-24 rotate-12">
-                                        <Img
-                                            src={"/icons/excaliarrow.svg"}
-                                            className={"w-56 h-56 ml-2"}
-                                        />
-                                    </div>
-                                </div>
-
-                                <span className="text-5xl font-bold">
-                                    Mecha Mayhem App
-                                </span>
-                                <p className="text-slate text-2xl mb-6">
-                                    8.2k visitors / y
-                                </p>
-                                {/* <MarkdownRenderer content={markdownContent} /> */}
-                                <ButtonWrapper
-                                    router={router}
-                                    pid={"mecha-mayhem"}
-                                >
-                                    <Button
-                                        icon={"/icons/external-link.svg"}
-                                        primary={"#FF4D4D"}
-                                        label={"view_project"}
-                                        textStyles={"text-lg tracking-wide"}
-                                        href={""}
+                        ></PageHeader>
+                        <div className="lg:text-3xl text-2xl text-white w-full col mt-36 gap-2 md:!flex !hidden">
+                            <div className="row">
+                                <span>featured_projects</span>
+                                <div className="absolute ml-72 -mt-24 rotate-12">
+                                    <Img
+                                        src={"/icons/excaliarrow.svg"}
+                                        className={
+                                            "xl:w-56 w-36 xl:mt-0 mt-12 aspect-square xl:ml-2"
+                                        }
                                     />
-                                </ButtonWrapper>
+                                </div>
                             </div>
-                        </PageHeader>
+
+                            <span className="lg:text-5xl text-4xl font-bold">
+                                Mecha Mayhem App
+                            </span>
+                            <p className="text-slate lg:text-2xl text-xl mb-6">
+                                8.2k visitors / y
+                            </p>
+                            {/* <MarkdownRenderer content={markdownContent} /> */}
+                            <ButtonWrapper router={router} pid={"mecha-mayhem"}>
+                                <Button
+                                    icon={"/icons/external-link.svg"}
+                                    primary={"#FF4D4D"}
+                                    label={"view_project"}
+                                    textStyles={"text-lg tracking-wide"}
+                                    href={""}
+                                />
+                            </ButtonWrapper>
+                        </div>
                     </div>
                     <Grid data={data} />
                 </PageContainer>
