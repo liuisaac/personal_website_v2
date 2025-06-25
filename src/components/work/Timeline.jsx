@@ -93,7 +93,7 @@ const CompanyIcon = ({ src }) => {
 
 const Description = ({ brief, date, description, location, title }) => {
     return (
-        <div className="sm:ml-24 ml-12">
+        <div className="sm:ml-24 ml-12 w-2/3">
             <header className="font-bold md:text-4xl sm:text-3xl text-2xl">{title}</header>
             <div className="row gap-5 text-slate font-semibold text-xl">
                 <span className="sm:row-center hidden gap-1">
@@ -107,7 +107,11 @@ const Description = ({ brief, date, description, location, title }) => {
             </div>
             <div className="md:text-xl text-md mt-5 font-sans gap-2 col">
                 <p>{brief}</p>
-                <p>{description}</p>
+                {description.map((desc, index) => (
+                    <p key={index} className="">
+                        ◦ {desc}
+                    </p>
+                ))}
             </div>
         </div>
     );
