@@ -12,7 +12,7 @@ const Overlay = () => {
                 <div className="col justify-center items-start ml-4">
                     <h1 className="2xl:text-5xl xl:text-3xl md:text-3xl text-3xl header z-20">isaac_liu</h1>
                     <span className="2xl:text-3xl xl:text-xl md:text-xl text-xl text-slate">
-                        /aIzək/ • he/him
+                        Vancouver, BC • Software Engineer
                     </span>
                 </div>
             </div>
@@ -31,11 +31,9 @@ const Overlay = () => {
                 </ul>
 
                 <p>
-                    at my core, im a tinkerer — driven by curiosity, a sense of
-                    ownership, and taking initiative. it&apos;s just fun to ideate
-                    solutions to my own problems, build them out, and push the
-                    limits my comfort zone in the process.
+                    at my core, im a tinkerer. it&apos;s important to me that i'm constantly taking initiative and ownership of my creation process; to ideate solutions to interesting problems, build them out, and push the limits my comfort zone in the process.
                 </p>
+                {/* wow look at me i know how to use semicolons */}
             </div>
 
             <Button
