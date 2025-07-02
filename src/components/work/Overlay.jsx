@@ -17,7 +17,7 @@ const Overlay = () => {
                 ></PageHeader>
             </div>
             <div className="mt-16">
-                 <Button icon="/icons/paper.svg" primary="#172147" label="view_my_resume" textStyles="text-lg"/>
+                 <Button href="https://drive.google.com/file/d/1o0PurEvkQ6T88OiXqJq-Dg21YZfTGwNp/view?usp=sharing" icon="/icons/paper.svg" primary="#172147" label="view_my_resume" textStyles="text-lg" />
             </div>
 
             <Timeline data={data}/>
