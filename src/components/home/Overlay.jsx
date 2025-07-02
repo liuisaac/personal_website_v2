@@ -23,15 +23,16 @@ const Overlay = () => {
                 <p>i&apos;ll save you some trouble and just cut to the chase:</p>
 
                 <ul>
-                    <li>• 2nd year computer science student 🆘</li>
-                    <li>• Junior Developer @ UBC Biztech 🤖</li>
-                    <li>• SDE @ Mecha Mayhem 🚀</li>
-                    <li>• Undergrad TA @ UBC 📖</li>
+                    <li>• 3rd year computer science student 🆘</li>
+                    <li>• Developer @ UBC Biztech 🤖</li>
+                    <li>• Engineering @ Mecha Mayhem and Event Control 🚀</li>
+                    <li>• Buidling ChooChoo — a tiny distributed key-value store in Go 🚂</li>
+                    <li>• Former Undergrad TA @ UBC 📖</li>
                     <li>• Actively looking for opportunities in SWE 💯</li>
                 </ul>
 
                 <p>
-                    at my core, im a tinkerer. it&apos;s important to me that i'm constantly taking initiative and ownership of my creation process; to ideate solutions to interesting problems, build them out, and push the limits my comfort zone in the process.
+                    at my core, im a tinkerer. it&apos;s important to me that i&apos;m constantly taking initiative and ownership of my creation process; to ideate solutions to interesting problems, build them out, and push the limits my comfort zone in the process.
                 </p>
                 {/* wow look at me i know how to use semicolons */}
             </div>
