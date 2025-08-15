@@ -37,7 +37,7 @@ const Overlay = () => {
                     </Link>
                     <Link
                         className=""
-                        href="https://github.com/liuisaac"
+                        href="https://www.instagram.com/liuisaac05/?hl=en"
                     >
                         _instagram
                     </Link>
