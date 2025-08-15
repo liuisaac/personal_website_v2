@@ -14,6 +14,13 @@ const data = [
         tech_stack: "2025 - Go, SQLite, Svelte",
     },
     {
+        header: "ChooChoo",
+        href: "choochoo",
+        src: "/grid/choochoo.png",
+        subheader: "A pocket-sized distributed key-value store in Go",
+        tech_stack: "2025 - Go, BoltDB, Raft",
+    },
+    {
         header: "UBC Biztech",
         href: "biztech",
         src: "/grid/bt.png",

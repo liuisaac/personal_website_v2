@@ -3,10 +3,10 @@ const data = [
         brief: "☁️ Cloud Ops and Internal Tools",
         date: "Jan. 2025 - Present",
         description: [
-            "Built a proof-of-concept Jenkins pipeline using Groovy DSL, Docker, and Cloud Foundry CLI to accelerate XRS service registration by 6x. Previous process involved manual steps like curl-based service key fetching, auth token and payload handling, and endpoint polling",
-            "Helped maintain a 99.7% uptime SLA by triaging issues and performing critical maintenance operations—including DB restarts across AWS, Azure, and GCP—during weekend shifts and maintenance windows",
-            "Executed Blue-Green deployments and wave updates via Jenkins across 30+ data centers, handling troubleshooting, incident triaging, escalation, and post-deployment smoke testing",
-            "Drove daily handover and standups for 2 months — kept ops team aligned across VAN-SOF time zones and surfaced urgent issues early",
+            "Built and shipped a Jenkins pipeline to production using Apache Groovy, Docker, and Cloud Foundry CLI to accelerate service registration times by 6x for newly onboarded data centers. Previous process involved manual ops work (ie: curl-based service key fetching, auth token and payload handling, and endpoint polling). ",
+            "Helped maintain a 99.7% uptime SLA by triaging issues and performing critical maintenance operations across AWS, Azure, and GCP—during weekend shifts and maintenance windows",
+            // "Executed Blue-Green deployments (non-downtime inducing) and wave updates via Jenkins across 30+ data centers, handling troubleshooting, incident triaging, escalation, and post-deployment smoke testing",
+            "Accelerated VH ticket response times by 30% by building a hybrid contextual RAG-enabled monitoring dashboard using OpenAI ada-002 embeddings, Flask, and PostgreSQL to search 200k+ Jira issues and Confluence docs"
         ],
         location: "SAP Vancouver",
         src: "/timeline/sap.png",
@@ -28,10 +28,10 @@ const data = [
         brief: "🚀 Full Stack Developmnt",
         date: "Oct. 2023 - Apr. 2024",
         description: [
-            "Improved mobile experience — layout adapts across breakpoints and touch interactions feel natural",
-            "Browser quirks (especially WebKit) ironed out for consistent styling and behavior across Chrome, Safari, and Firefox",
+            "Built interactive Three.js-based web experiences showcased in partner demos, differentiating client offerings, and contributing to 3 successful business pitches with major firms",
+            "Diagnosed poor site performance (LCP) caused by eager loading of large components, improving page speed 10x by introducing server-side rendering and dynamic imports, slashing largest JS bundle sizes by over 60%",
             "Implemented CI/CD pipeline hooks into GitHub and automated pull-deploys to production — no more manual uploads or FTP-based processes in cPanel",
-            "Resume drop feature handles file uploads with Multer, stores metadata in MongoDB, and emails submissions via Nodemailer — cuts down formatting issues"
+            "Integrated resume drop feature to handle file uploads with Multer, storing metadata in MongoDB and emailing submissions via Nodemailer"
         ],
         location: "Remote",
         src: "/timeline/cbx.png",

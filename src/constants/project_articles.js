@@ -1,5 +1,6 @@
 import mechaMayhem from './articles/mecha-mayhem';
 import eventControl from './articles/event-control';
+import choochoo from './articles/choochoo';
 import biztech from './articles/biztech';
 import polaris from './articles/polaris';
 import oniva from './articles/oniva';
@@ -13,6 +14,7 @@ import bombParty from './articles/bomb-party';
 const articles = [
     mechaMayhem,
     eventControl,
+    choochoo,
     biztech,
     polaris,
     oniva,

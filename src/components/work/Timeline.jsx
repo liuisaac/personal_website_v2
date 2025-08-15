@@ -6,7 +6,7 @@ import Img from "../ui/Img";
 
 const ExperienceMarker = () => {
     return (
-        <figure className="z-10 w-4 aspect-square border-[4px] border-white bg-black rotate-45" />
+        <figure className="z-50 w-4 aspect-square border-[4px] border-white bg-black rotate-45" />
     );
 };
 
@@ -68,17 +68,6 @@ const TimelineMarker = ({ containerRef, scrollY }) => {
     );
 };
 
-
-const Markers = () => {
-    return (
-        <>
-            <div className="left-0 row items-start justify-center min-h-96">
-                <ExperienceMarker />
-            </div>
-        </>
-    );
-};
-
 const CompanyIcon = ({ src }) => {
     return (
         <div className="w-56 h-48 overflow-hidden col-center md:!flex !hidden">
@@ -93,7 +82,7 @@ const CompanyIcon = ({ src }) => {
 
 const Description = ({ brief, date, description, location, title }) => {
     return (
-        <div className="sm:ml-24 ml-12 w-2/3">
+        <div className="sm:ml-24 ml-12 w-full">
             <header className="font-bold md:text-4xl sm:text-3xl text-2xl">{title}</header>
             <div className="row gap-5 text-slate font-semibold text-xl">
                 <span className="sm:row-center hidden gap-1">
@@ -117,7 +106,8 @@ const Description = ({ brief, date, description, location, title }) => {
     );
 };
 
-const Experience = ({ index, item }) => {
+// Option 2: Better approach using CSS Grid
+const TimelineRow = ({ item, index, isLast }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "0px 0px 16px 0px",
@@ -130,9 +120,20 @@ const Experience = ({ index, item }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            className={`grid grid-cols-[auto_auto_1fr] gap-0 ${!isLast ? 'mb-48' : ''}`}
         >
-            <div className="mb-48 row">
-                <CompanyIcon key={index} src={item.src} />
+            <div className="col w-auto justify-self-start mr-[32px]">
+                <CompanyIcon src={item.src} />
+            </div>
+            {/* Timeline column */}
+            <div className="-mr-5 w-5 col items-center justify-center relative mt-3">
+                <div className="row items-start justify-center h-full -mr-15">
+                    <ExperienceMarker />
+                </div>
+            </div>
+            
+            {/* Content column */}
+            <div className="w-full col">
                 <Description
                     title={item.title}
                     location={item.location}
@@ -155,31 +156,24 @@ const Timeline = ({ data }) => {
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
     return (
-        <div className="mt-24">
-            <div className="absolute">
-                {data.map((item, index) => {
-                    return <Experience item={item} index={index} key={index} />;
-                })}
-            </div>
-
-            <div
-                className="w-5 col items-center justify-start md:ml-64 relative"
-                ref={containerRef}
-            >
-                {data.map((item, index) => {
-                    return (
-                        <div key={index} >
-                            <Markers />
-                        </div>
-                    );
-                }, [])}
+        <div className="mt-24 relative" ref={containerRef}>
+            {data.map((item, index) => (
+                <TimelineRow 
+                    key={index}
+                    item={item} 
+                    index={index}
+                    isLast={index === data.length - 1}
+                />
+            ))}
+            
+            {/* Timeline line and animated marker */}
+            <div className="absolute top-0 mt-3 w-5 md:ml-64 flex flex-row justify-center">
                 <TimelineMarker scrollY={scrollY} containerRef={containerRef} />
             </div>
         </div>

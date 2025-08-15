@@ -26,13 +26,13 @@ const Overlay = () => {
                     <li>• 3rd year computer science student 🆘</li>
                     <li>• Developer @ UBC Biztech 🤖</li>
                     <li>• Engineering @ Mecha Mayhem and Event Control 🚀</li>
-                    <li>• Buidling ChooChoo — a tiny distributed db in Go 🚂</li>
+                    <li>• Experimenting with ChooChoo — a tiny distributed db in Go 🚂</li>
                     <li>• Former Undergrad TA @ UBC 📖</li>
                     <li>• Actively looking for opportunities in SWE 💯</li>
                 </ul>
 
                 <p>
-                    at my core, i&apos;m a tinkerer. i love nothing more than to ideate solutions to interesting problems, build them out, and push the limits my comfort zone in the process.
+                    at my core, i&apos;m a tinkerer; i like tackling interesting problems head on, building solutions out, and pushing my limits in the process.
                 </p>
                 {/* wow look at me i know how to use semicolons */}
             </div>

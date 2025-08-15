@@ -1,0 +1,19 @@
+{
+    "date": "2025",
+    "id": "choochoo",
+    "tech_stack": "Go, BoltDB, Raft",
+    "title": "ChooChoo",
+    "thumbnail": "/thumbnails/choochoo.png",
+    "body": [
+        {
+            "subtitle": "Project Overview 📋",
+            "body": "ChooChoo is a lightweight in-memory distributed key-value store built in Go, designed for simplicity and packaged in one executable. It leverages Raft for consensus in a single-leader replication model and BoltDB for WAL and snapshotting. It is primarily intended as a toy project to better understand the workings of similar distributed databases (ie: Apache Cassandra, Riak, Dynamo)",
+            "href": "https://github.com/liuisaac/choo-choo"
+        },        
+        {
+            "subtitle": "Future Extensions 🚀",
+            "body": "As ChooChoo is still very much a work in progress, there is much I'd like to explore and implement. Some potential future features include:\n\n• Going beyond basic key-value storage to support more flexible data structures\n\n• Possible Grafana/Prometheus integration for monitoring\n\n• More flexible querying capabilities and indexing options",
+            "src": ""
+        }
+    ]
+}

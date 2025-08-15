@@ -31,7 +31,7 @@ const Simulation = ({ children }) => {
     }, [route]);
 
     const toggleGravity = () => {
-        if (gravity != positiveG && route == "/") {
+        if (gravity != positiveG) {
             setGravity(positiveG);
             setGravityToggle(true);
             setMouseGravity(-0.2);
