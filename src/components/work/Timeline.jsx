@@ -107,7 +107,7 @@ const Description = ({ brief, date, description, location, title }) => {
 };
 
 // Option 2: Better approach using CSS Grid
-const TimelineRow = ({ item, index, isLast }) => {
+const TimelineRow = ({ index, item, isLast }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "0px 0px 16px 0px",
