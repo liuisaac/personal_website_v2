@@ -25,12 +25,6 @@
             "body": "• REST API built with Express.js and Firebase (Datastore mode), deployed on an Amazon EC2 instance\n\n • Used AWS S3 for file storage and Cloudflare for HTTPS + CDN performance\n\n • Configured reverse proxy routing to serve the API under /api while maintaining HTTPS integrity\n\n • Developed a Python-based livestream splitter to auto-segment match footage using Tesseract OCR + FFmpeg\n\n • Achieved accurate timestamp extraction and video slicing from 11+ hour robotics competition streams",        
             "src": "",
             "href": ""
-        },
-        {
-            "subtitle": "Project Organization 🚩",
-            "body": "",
-            "src": "",
-            "href": ""
         }
     ]
 }

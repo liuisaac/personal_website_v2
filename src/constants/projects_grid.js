@@ -9,9 +9,9 @@ const data = [
     {
         header: "Event Control Team",
         href: "event-control",
-        src: "/grid/kube.png",
+        src: "/grid/ec.png",
         subheader: "VRC5 Event Control and Orchestration",
-        tech_stack: "2025 - Go, SQLite, Svelte",
+        tech_stack: "2025 - Go, SQLite, MQTT",
     },
     {
         header: "ChooChoo",
