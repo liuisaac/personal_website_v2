@@ -3,12 +3,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
-import { useSpring } from "react-spring";
-import { a as three } from "@react-spring/three";
+import { useFrame } from "@react-three/fiber";
 
 export default function ComputerMesh({ open, scale }) {
     const [videoTexture, setVideoTexture] = useState(null);
     const [screenMaterial, setScreenMaterial] = useState(null);
+    const [animatedOpen, setAnimatedOpen] = useState(0);
 
     useEffect(() => {
         const video = document.createElement("video");
@@ -26,21 +26,30 @@ export default function ComputerMesh({ open, scale }) {
         setVideoTexture(texture);
     }, []);
 
-    const springProps = useSpring({
-        open: Number(open),
+    // Smooth animation using useFrame
+    useFrame(() => {
+        const targetOpen = Number(open);
+        const diff = targetOpen - animatedOpen;
+        const delta = diff * 0.1; // Smoothing factor
+        
+        if (Math.abs(diff) > 0.001) {
+            setAnimatedOpen(prev => prev + delta);
+        }
     });
 
-    const hinge = springProps.open.to({
-        extrapolate: "clamp",
-        output: [1.575, 0.7, 0.2, -0.3],
-        range: [0, 0.3, 0.7, 1.0],
-    });
+    // Interpolation functions
+    const interpolate = (value, inputRange, outputRange) => {
+        for (let i = 0; i < inputRange.length - 1; i++) {
+            if (value >= inputRange[i] && value <= inputRange[i + 1]) {
+                const t = (value - inputRange[i]) / (inputRange[i + 1] - inputRange[i]);
+                return outputRange[i] + t * (outputRange[i + 1] - outputRange[i]);
+            }
+        }
+        return value <= inputRange[0] ? outputRange[0] : outputRange[outputRange.length - 1];
+    };
 
-    const opphinge = springProps.open.to({
-        extrapolate: "clamp",
-        output: [0, 0, 0.05, 0.1],
-        range: [0, 0.3, 0.7, 1.0],
-    });
+    const hinge = interpolate(animatedOpen, [0, 0.3, 0.7, 1.0], [1.575, 0.7, 0.2, -0.3]);
+    const opphinge = interpolate(animatedOpen, [0, 0.3, 0.7, 1.0], [0, 0, 0.05, 0.1]);
 
     const computer = useRef(null);
 
@@ -109,7 +118,7 @@ export default function ComputerMesh({ open, scale }) {
     return (
         <group dispose={null} rotation={[-0.1, 0.1, 0]}>
             <group ref={computer} scale={size * 0.0015} dispose={null}>
-                <three.group rotation-x={hinge} position={[0, -0.04, 0.41]}>
+                <group rotation-x={hinge} position={[0, -0.04, 0.41]}>
                     <group
                         position={[0, 2.96, -0.13]}
                         rotation={[Math.PI / 2, 0, 0]}
@@ -134,8 +143,8 @@ export default function ComputerMesh({ open, scale }) {
                             material={screenMaterial}
                         />
                     </group>
-                </three.group>
-                <three.group rotation-x={opphinge}>
+                </group>
+                <group rotation-x={opphinge}>
                     <mesh
                         geometry={nodes.keyboard.geometry}
                         material={materials.keys}
@@ -158,7 +167,7 @@ export default function ComputerMesh({ open, scale }) {
                         material={materials.touchbar}
                         position={[0, -0.03, 1.2]}
                     />
-                </three.group>
+                </group>
             </group>
         </group>
     );

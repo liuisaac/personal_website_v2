@@ -6,36 +6,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "next": "^15.1.9",
-    "@react-three/fiber": "^8.13.0",
-    "@react-three/drei": "^8.12.0",
-    "three": "^0.173.0",
-    "react-spring": "9.7.5",
-    "react-markdown": "^10.0.0",
-    "react-modal": "^3.16.3",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.4.2",
+    "@tailwindcss/postcss": "^4.0.6",
     "framer-motion": "^12.4.3",
     "lucide-react": "^0.475.0",
+    "next": "^15.5.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "react-modal": "^3.16.3",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "@tailwindcss/postcss": "^4.0.6"
+    "three": "^0.164.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.1.6",
     "eslint-plugin-perfectionist": "^4.9.0",
     "postcss": "^8.5.2",
-    "tailwindcss": "^3.4.17",
-    "autoprefixer": "^10.4.20"
-  },
-  "overrides": {
-    "@react-spring/three": "9.7.5",
-    "@react-spring/core": "9.7.5",
-    "@react-spring/animated": "9.7.5"
+    "tailwindcss": "^3.4.17"
   }
 }
