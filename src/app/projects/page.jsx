@@ -5,7 +5,7 @@ import { Suspense, React} from "react";
 const page = () => {
     return (
         <FadeWrapper>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div></div>}>
                 <Overlay />
             </Suspense>
         </FadeWrapper>
