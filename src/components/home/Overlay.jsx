@@ -23,7 +23,7 @@ const Overlay = () => {
                 <WelcomeMessage />
 
                 {/* <p>i&apos;ll save you some trouble and just cut to the chase:</p> */}
-                <p>here's the long and short of it:</p>
+                <p>here&apos;s the long and short of it:</p>
 
                 <ul>
                     <li>• 3rd year computer science student 🆘</li>
