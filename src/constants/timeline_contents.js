@@ -1,5 +1,17 @@
 const data = [
     {
+        brief: "🚀 Incoming 2026 Summer FDSE Intern @ Palantir",
+        date: "Jun. 2026 - Aug. 2026",
+        description: [
+            "I wonder what I'm going to write here...",
+            "...",
+            "...",
+        ],
+        location: "New York, NY",
+        src: "/timeline/pltr.png",
+        title: "Software Engineer Intern - Forward Deployed",
+    },
+    {
         brief: "☁️ Cloud Ops and Internal Tools",
         date: "Jan. 2025 - Present",
         description: [
@@ -25,7 +37,7 @@ const data = [
         title: "Undergraduate Teaching Assistant",
     },
     {
-        brief: "🚀 Full Stack Developmnt",
+        brief: "🚀 Full Stack Development",
         date: "Oct. 2023 - Apr. 2024",
         description: [
             "Built interactive Three.js-based web experiences showcased in partner demos, differentiating client offerings, and contributing to 3 successful business pitches with major firms",

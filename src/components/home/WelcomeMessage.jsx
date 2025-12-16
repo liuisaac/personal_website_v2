@@ -16,15 +16,15 @@ const WelcomeMessage = () => {
     const message = (() => {
         switch (true) {
             case visitCount <= 2:
-                return "welcome! glad you stopped by :)";
+                return "hey! glad you stopped by :)";
             case visitCount <= 4:
                 return "woah, you're back! glad to have you :)";
             case visitCount <= 6:
-                return "hey! great to see you again :)";
+                return "welcome back! :)";
             case visitCount <= 8:
                 return "yo :)";
             default:
-                return "welcome back! :)";
+                return "yo :)";
         }
     })();
 

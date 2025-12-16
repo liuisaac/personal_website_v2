@@ -12,6 +12,16 @@
             "href": "https://www.ubcbiztech.com/"
         },        
         {
+            "subtitle": "Kickstart 2025 💹",
+            "body": "• Implemented main dashboards for KickFund, a mock funding platform for early-stage startups\n\n • Refactored login and auth flow for the Companion App with Cognito integration",        
+            "src": ""
+        },      
+        {
+            "subtitle": "Summer 2025 🌞",
+            "body": "• Implemented Slack/Discord integrations and auth flow for public + internal servers\n\n • Cut local individual service cold start time by 45% through containerization across 11 microservices",        
+            "src": ""
+        },      
+        {
             "subtitle": "ProductX 2025 🚀",
             "body": "• Implemented Judging Portal interface for both judges and hacker views\n\n • Refactored core frontend components to streamline state management, improving the\n\n • Wrote migration scripts to convert existing registration data to the judging tables in DynamoDB",        
             "src": ""

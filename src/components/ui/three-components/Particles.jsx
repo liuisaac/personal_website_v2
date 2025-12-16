@@ -14,7 +14,7 @@ import {
 
 const ParticlesComponent = ({ G, mouseGMultiplier, mouseInfluenceRadius }) => {
     const particlesRef = useRef();
-    const velocitiesRef = useRef();
+    const velocitiesRef = useRef(null);
     const { camera, size } = useThree();
 
     const { positions, velocities } = useMemo(() => {
@@ -39,9 +39,7 @@ const ParticlesComponent = ({ G, mouseGMultiplier, mouseInfluenceRadius }) => {
         return { positions: pos, velocities: vel };
     }, []);
 
-    useEffect(() => {
-        velocitiesRef.current = velocities;
-    }, [velocities]);
+    velocitiesRef.current = velocities;
 
     const raycasterRef = useRef(new THREE.Raycaster());
     const mouseRef = useRef(new THREE.Vector2(0, 0));
@@ -73,7 +71,6 @@ const ParticlesComponent = ({ G, mouseGMultiplier, mouseInfluenceRadius }) => {
 
         const posArray = geom.attributes.position.array;
         const velArray = velocitiesRef.current;
-
         let particlesInOrbit = 0;
 
         for (let i = 0; i < PARTICLE_COUNT; i++) {

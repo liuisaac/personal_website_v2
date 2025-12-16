@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
-import { useSpring } from "@react-spring/core";
+import { useSpring } from "react-spring";
 import { a as three } from "@react-spring/three";
 
 export default function ComputerMesh({ open, scale }) {
@@ -26,7 +26,9 @@ export default function ComputerMesh({ open, scale }) {
         setVideoTexture(texture);
     }, []);
 
-    const [springProps] = useSpring(() => ({ open: Number(open) }), [open]);
+    const springProps = useSpring({
+        open: Number(open),
+    });
 
     const hinge = springProps.open.to({
         extrapolate: "clamp",

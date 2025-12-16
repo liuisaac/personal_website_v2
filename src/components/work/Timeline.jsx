@@ -162,7 +162,7 @@ const Timeline = ({ data }) => {
     }, []);
 
     return (
-        <div className="mt-24 relative" ref={containerRef}>
+        <div className="mt-24 mb-24 relative" ref={containerRef}>
             {data.map((item, index) => (
                 <TimelineRow 
                     key={index}

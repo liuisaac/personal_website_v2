@@ -9,11 +9,11 @@ const ProjectSection = ({ body, href, src, subtitle }) => {
                 <header className="text-4xl font-semibold">{subtitle}</header>
             )}
             {body && (
-                <p className="text-xl text-slate mt-4">
+                <div className="text-xl text-slate mt-4">
                     <ReactMarkdown>
                         {body.replace(/\n{2,}/g, "\n\n")}
                     </ReactMarkdown>
-                </p>
+                </div>
             )}
             {src && (
                 <div className="my-2">

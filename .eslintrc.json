@@ -11,6 +11,7 @@
       {
         "type": "natural"
       }
-    ]
+    ],
+    "jsx-a11y/alt-text": "off"
   }
 }

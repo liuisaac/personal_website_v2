@@ -1,8 +1,13 @@
-
+"use client";
 
 import { Inconsolata, Poppins } from "next/font/google";
-import Simulation from "@/components/ui/three-components/Simulation";
+import dynamic from 'next/dynamic';
 import "./globals.css";
+
+const Simulation = dynamic(
+  () => import('@/components/ui/three-components/Simulation'),
+  { ssr: false }
+);
 
 const inconsolata = Inconsolata({
     display: "swap",
