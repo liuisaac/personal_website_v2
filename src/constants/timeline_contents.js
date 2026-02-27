@@ -13,7 +13,7 @@ const data = [
     },
     {
         brief: "☁️ Cloud Ops and Internal Tools",
-        date: "Jan. 2025 - Present",
+        date: "Jan. 2025 - Aug. 2025",
         description: [
             "Built and shipped a Jenkins pipeline to production using Apache Groovy, Docker, and Cloud Foundry CLI to accelerate service registration times by 6x for newly onboarded data centers. Previous process involved manual ops work (ie: curl-based service key fetching, auth token and payload handling, and endpoint polling). ",
             "Helped maintain a 99.7% uptime SLA by triaging issues and performing critical maintenance operations across AWS, Azure, and GCP—during weekend shifts and maintenance windows",

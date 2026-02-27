@@ -35,11 +35,17 @@ const Overlay = () => {
                     >
                         _github
                     </Link>
-                    <Link
+                    {/* <Link
                         className=""
                         href="https://www.instagram.com/liuisaac05/?hl=en"
                     >
                         _instagram
+                    </Link> */}
+                    <Link
+                        className=""
+                        href="https://tracker.gg/valorant/profile/riot/gurkle%23brop/overview?platform=pc&playlist=competitive"
+                    >
+                        _mystery_link
                     </Link>
                 </div>
                 <figure className="w-[1px] h-96 bg-slate xl:flex hidden" />

@@ -13,6 +13,11 @@
         "subtitle": "How It Works ⚙️",
         "body": "The bot captures the game screen, extracts the prompt using OCR, and searches a dictionary for the first matching word. Once found, it simulates keystrokes using Pynput to type the answer within milliseconds—essentially automating and optimizing human reflexes.",
         "src": "/images/bomb-party/bruh.png"
+      },
+      {
+        "subtitle": "Erm... so you're just cheating ⁉️",
+        "body": "Yup.",
+        "src": "/images/bomb-party/unemployed.jpg"
       }
     ]
   }

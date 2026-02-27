@@ -10,8 +10,10 @@ import examifai from './articles/examifai';
 import swcdb from './articles/swcdb';
 import vex from './articles/vex';
 import bombParty from './articles/bomb-party';
+import chalkmd from './articles/chalkmd';
 
 const articles = [
+    chalkmd,
     mechaMayhem,
     eventControl,
     choochoo,

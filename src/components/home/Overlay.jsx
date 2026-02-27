@@ -23,13 +23,16 @@ const Overlay = () => {
                 <WelcomeMessage />
 
                 {/* <p>i&apos;ll save you some trouble and just cut to the chase:</p> */}
-                <p>here&apos;s the long and short of it:</p>
+                {/* <p>here&apos;s the long and short of it:</p> */}
+                <p>{"this is what's up:"}</p>
 
                 <ul>
                     <li>• 3rd year computer science student 🆘</li>
                     <li>• Developer @ UBC Biztech 🤖</li>
                     <li>• Engineering and Event Control @ Mecha Mayhem 🚀</li>
-                    <li>• Experimenting with ChooChoo, a tiny distributed db in Go 🚂</li>
+                    {/* <li>• Experimenting with ChooChoo, a tiny distributed db in Go 🚂</li> */}
+                    <li>• Building ChalkMD, an open-sourced Obsidian port in Go 📝</li>
+                    <li>• Scored a 3 once in basketball intramurals 🤫</li>
                     {/* <li>• Former Undergrad TA @ UBC 📖</li> */}
                     <li>• On the lookout for opportunities in SWE 💯</li>
                 </ul>

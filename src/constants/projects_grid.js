@@ -1,6 +1,13 @@
 const data = [
     {
-        header: "Mecha Mayhem - Web App",
+        header: "ChalkMD",
+        href: "chalkmd",
+        src: "/grid/chalkmd.png",
+        subheader: "An open-sourced Obsidian port in Go",
+        tech_stack: "2026 - Go, Wails, Vite",
+    },
+    {
+        header: "Mecha Mayhem",
         href: "mecha-mayhem",
         src: "/grid/mecha-mayhem.png",
         subheader: "Canada's largest robotics competition",
