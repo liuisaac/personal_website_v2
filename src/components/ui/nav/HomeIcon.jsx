@@ -19,7 +19,7 @@ const HomeIcon = ({ handleClick, route }) => {
                 isaac_liu
             </span>
 
-            <Img src="/backtext.svg" alt="Home Icon" className=" w-56 h-20 z-10 -mt-20"/>
+            <Img src="/backtext.svg" alt="Home Icon" className="w-56 h-20 z-10 -mt-20"/>
         </div>
     );
 };

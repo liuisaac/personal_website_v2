@@ -1,0 +1,22 @@
+export const meta = {
+  id: "event-control",
+  title: "Event Control",
+  date: "2025",
+  tech_stack: "Typescript, Go, SQLite, MQTT",
+  thumbnail: "/grid/ec.png",
+  summary: "An open-source robotics tournament control platform resilient to poor network environments.",
+};
+
+## Project Overview 📋
+
+The Event Control project is a comprehensive platform for managing and running robotics tournaments, built to replace the VEX Tournament manager. It covers all stages from event setup to live match control and scoring.
+
+The system integrates UI and database layers to ensure seamless tournament operations, designed to withstand network drops and poor WiFi often found in tournament venues.
+
+## Key Work 🔑
+
+- Built an open-source tournament control platform using Go and Svelte, handling full match state logic, schedule generation, and arena signaling via **mDNS**
+- Designed data models for teams, arenas, and matches with SQLite-backed persistence with improved reliability in high network drop environments
+- Integrated Mochi-MQTT pub/sub to reduce impact of data gaps from intermittent packet loss
+- Enabled real-time event management for tournaments with scalable, low-latency architecture
+

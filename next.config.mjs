@@ -1,6 +1,14 @@
+import createMDX from '@next/mdx';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config, { isServer }) => {
+const nextConfigBase = {
+  webpack: (config, { dev, isServer }) => {
+    // Workaround for Windows EPERM issues writing webpack pack cache.
+    // Memory cache is plenty for dev and avoids file locks from AV/indexers.
+    if (dev) {
+      config.cache = false;
+    }
+
     // Fix for @react-three/fiber
     if (!isServer) {
       config.resolve.alias = {
@@ -23,5 +31,14 @@ const nextConfig = {
   },
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 };
+
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
+
+const nextConfig = withMDX({
+  ...nextConfigBase,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+});
 
 export default nextConfig;

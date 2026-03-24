@@ -1,0 +1,55 @@
+export const meta = {
+  id: "chalkmd",
+  title: "ChalkMD",
+  date: "2026",
+  tech_stack: "Go, Wails, React, Vite",
+  thumbnail: "/thumbnails/chalkmd.png",
+  summary: "An open-source Obsidian-style markdown notebook for power users.",
+};
+
+<RepoLink href="https://github.com/liuisaac/chalkmd">View on GitHub</RepoLink>
+
+## Project Overview 📋
+
+ChalkMD is an open-source Obsidian port built with Go and Wails, designed to provide a maximallly customizable experience for developers to manage their notes and tasks. It is both designed to be lightweight and familiar to Obsidian users whilst remaining completely open-source and feature-rich.
+
+<StatGrid
+  stats={[
+    { label: "What it is", value: "Obsidian-style app", hint: "Fast, local-first notes + tasks" },
+    { label: "Core idea", value: "Markdown → Power", hint: "Structured docs without vendor lock-in" },
+    { label: "Stack", value: "Go + Wails", hint: "WebView2-based, no bloated Chromium instances" },
+  ]}
+/>
+
+<Callout title="Vision" type="info">
+  You shouldn't just *own* your notes; you should be able to *bend the editor*, data model, and UX itself to fit your workflow without fighting the limitations of a closed-source plugin interface.
+</Callout>
+
+<Carousel
+  images={[
+    { src: "/images/chalkmd/welcome.png", alt: "ChalkMD welcome screen", label: "Get started" },
+    { src: "/images/chalkmd/notes.png", alt: "ChalkMD notes view", label: "Notes view" },
+    // placeholder: swap this for a real screenshot when available
+    { src: "/images/chalkmd/code.png", alt: "ChalkMD code blocks", label: "Code blocks" },
+  ]}
+  aspect="16/9"
+/>
+
+## Motivation 🎨
+<p>
+For the vast majority of users, Obsidian and its vast plugin library is more than enough to support their workflow. Obsidian's approach (extremely simple markdown-based editor with ability to scale up with plugins) ensures it is only as powerful as you need. However, there always exists a technical ceiling to what can be achieved with plugins alone being integrated into inherently closed-source software, resulting in somewhat hacky feeling workarounds or at worst, no support at all.
+</p>
+<br />
+<p>
+To a certain annoying subset of users (myself), this is ample reason to build my own Obsidian port for my personal workflow needs. The entire repo is open to anyone to contribute to, fork, and modify to their liking. If you have any suggestions or feature requests, please feel free to open an issue or pull request.
+</p>
+
+## Features 🚀
+
+- WSYIWYG Markdown Editing written from the ground up as TipTap plugins
+- Runs in WebView2, no spinning up hungry Chromium processes
+- Completely local, offline note storage; your notes are yours alone
+- Built-in support for backlinks, headers, bullet points, checklists, inline LaTeX equations, code blocks, and more
+- Completely open-source and free from vendor lock-in
+- Sync coming soonish!
+

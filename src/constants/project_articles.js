@@ -13,11 +13,11 @@ import bombParty from './articles/bomb-party';
 import chalkmd from './articles/chalkmd';
 
 const articles = [
+    biztech,
     chalkmd,
     mechaMayhem,
     eventControl,
     choochoo,
-    biztech,
     polaris,
     oniva,
     mpga,

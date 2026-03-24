@@ -1,5 +1,12 @@
 const data = [
     {
+        header: "UBC Biztech",
+        href: "biztech",
+        src: "/grid/bt.png",
+        subheader: "Web app and dev features",
+        tech_stack: "2025 - React, AWS Lambda, Microservice",
+    },
+    {
         header: "ChalkMD",
         href: "chalkmd",
         src: "/grid/chalkmd.png",
@@ -26,13 +33,6 @@ const data = [
         src: "/grid/choochoo.png",
         subheader: "A pocket-sized distributed key-value store in Go",
         tech_stack: "2025 - Go, BoltDB, Raft",
-    },
-    {
-        header: "UBC Biztech",
-        href: "biztech",
-        src: "/grid/bt.png",
-        subheader: "Web app and dev features",
-        tech_stack: "2025 - React, AWS Lambda, Microservice",
     },
     {
         header: "Polaris",
@@ -69,7 +69,7 @@ const data = [
         src: "/grid/examifai.png",
         subheader: "LLM-powered exam material generation",
         tech_stack: "2023 - React, Node.js, MongoDB, Gumloop",
-    },    
+    },
     {
         header: "SWC-DB",
         href: "swcdb",

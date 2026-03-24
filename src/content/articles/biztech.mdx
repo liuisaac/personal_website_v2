@@ -1,0 +1,140 @@
+export const meta = {
+  id: "biztech",
+  title: "UBC Biztech",
+  date: "2025",
+  tech_stack: "Next.js, TS, Node.js, Docker, AWS(DynamoDB, S3, Lambda), Firebase",
+  thumbnail: "/thumbnails/biztech.png",
+  summary: "Junior Developer work building event platforms and internal tools for UBC BizTech.",
+};
+
+## Experience Overview 📋
+<p>
+UBC BizTech is the largest technology club at the University of British Columbia, dedicated to bridging the gap between business, technology, and students from all backgrounds. Through a wide range of events—from conferences and case competitions to tech panels and hackathons, BizTech's events provide valuable opportunities for students to engage, connect, and network with industry professionals.
+</p>
+<br />
+<p>
+As a Junior Developer, I support the club’s mission by contributing to the development of internal tools and public-facing platforms (specifically event companions) that streamline operations and enhance event experiences for our 1,500+ members.
+</p>
+
+<StatGrid
+  stats={[
+    { label: "Community", value: "1,500+ members", hint: "Students across disciplines" },
+    { label: "Scope", value: "Internal Tools + Event Companions", hint: "Ops, event experience, platforms" },
+    { label: "Theme", value: "Make events smoother", hint: "Frictionless features that feel good to use" },
+  ]}
+/>
+
+<Callout title="Design principle" type="info">
+  Build reliable foundations (auth, data models, deployment), then make the “last mile”
+  delightful for members and attendees: fast flows, beautiful intuitive UI/UX, and tooling that doesn’t fight directors.
+</Callout>
+
+<Carousel
+  images={[
+    {
+      src: "/images/biztech/blueprint.webm",
+      alt: "Blueprint 2025 scanning flow demo",
+      label: "Blueprint 2025",
+      type: "video",
+    },
+    { src: "/images/biztech/team.png", alt: "UBC BizTech team", label: "The team" },
+    // placeholder: swap with product screenshots when available
+    { src: "/images/biztech/admin.png", alt: "Main app dashboard", label: "Main app dashboard" },
+    { src: "/images/biztech/companion.png", alt: "Event companions", label: "Event companions" },
+  ]}
+  aspect="16/9"
+/>
+<RepoLink href="https://www.ubcbiztech.com/">Visit ubcbiztech.com</RepoLink>
+
+<Tabs
+  tabs={[
+    {
+      label: "Kickstart 2025 💹",
+      content: (
+        <>
+          <img
+            className="mb-4 w-full rounded-xl border border-white/10"
+            src="/images/biztech/kickstart.png"
+            alt="Kickstart 2025"
+            loading="lazy"
+          />
+          <ul>
+            <li>Implemented main dashboards for KickFund, a mock funding platform for early-stage startups</li>
+            <li>Refactored login and auth flow for the Companion App with Cognito integration</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      label: "Summer 2025 🌞",
+      content: (
+        <ul>
+          <li>Implemented Slack/Discord integrations and auth flow for public + internal servers</li>
+          <li>Cut local individual service cold start time by 45% through containerization across 11 microservices</li>
+        </ul>
+      ),
+    },
+    {
+      label: "ProductX 2025 🚀",
+      content: (
+        <>
+          <video
+            className="mb-4 w-full rounded-xl border border-white/10"
+            src="/images/biztech/productx.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
+          <ul>
+            <li>Implemented Judging Portal interface for both judges and hacker views</li>
+            <li>Refactored core frontend components to streamline state management, improving the developer experience and maintainability</li>
+            <li>Wrote migration scripts to convert existing registration data to the judging tables in DynamoDB</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      label: "Blueprint 2025 💳",
+      content: (
+        <>
+          <video
+            className="mb-4 w-full rounded-xl border border-white/10"
+            src="/images/biztech/nfc-animation.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
+          <ul>
+            <li>Implemented the complete NFC scanning user flow from badge tap to auth guards and profile redirection</li>
+            <li>Hit registration API to fetch profile data and display scanned user's information in real-time</li>
+            <li>Enabled workshop check-ins and partner booth scans with custom flows</li>
+            <li>Incorporated fallback and edge case handling for unmatched or incomplete NFC data</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      label: "Dataverse 2024 📊",
+      content: (
+        <>
+          <img
+            className="mb-4 w-full rounded-xl border border-white/10"
+            src="/images/biztech/dataverse.png"
+            alt="Dataverse 2024"
+            loading="lazy"
+          />
+          <ul>
+            <li>Authored feature doc for the Data Challenge, including architecture, goals, implementation details, and release plan</li>
+            <li>Defined and structured key user stories, edge cases, and basic smoke tests to guide both frontend and backend development</li>
+            <li>Implemented the frontend for the Data Challenge, with support for autograded feedback and live leaderboard updates</li>
+          </ul>
+        </>
+      ),
+    },
+  ]}
+/>
+

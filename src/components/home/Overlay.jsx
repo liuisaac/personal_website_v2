@@ -4,48 +4,66 @@ import Button from "../ui/Button";
 import WelcomeMessage from "./WelcomeMessage";
 import InternalLink from "../ui/InternalLink";
 
-
-
 const Overlay = () => {
     return (
-        <div className="2xl:w-[40em] xl:w-[35em] lg:w-[30em] md:w-[25em] w-full md:px-0 px-10 col items-start justify-center z-30 h-screen">
+        <div className="2xl:w-[40em] xl:w-[35em] lg:w-[32em] md:w-[30em] w-full md:px-0 px-10 col items-start justify-center z-30 sm:h-screen sm:py-0 py-24">
             <div className="row-center">
                 <Img src="/pfp.svg" alt="pfp" className=" 2xl:w-20 xl:w-16 md:w-16 w-14 aspect-square z-10" />
                 <div className="col justify-center items-start ml-4">
                     <h1 className="2xl:text-4xl xl:text-3xl md:text-3xl text-3xl header z-20">isaac_liu</h1>
-                    <span className="2xl:text-2xl xl:text-xl md:text-xl text-xl text-slate">
+                    <span className="2xl:text-2xl xl:text-xl md:text-xl hidden sm:flex text-slate">
                         Vancouver, BC • Software Engineer
+                    </span>
+                    <span className="text-sm sm:hidden text-slate flex flex-col">
+                        <p>Software Engineer</p>
+                        <p>Vancouver, BC</p>
                     </span>
                 </div>
             </div>
 
-            <div className="col 2xl:text-xl xl:text-lg lg:text-md 2xl:gap-8 gap-2 md:my-8 my-16">
+            <div className="col 2xl:text-lg xl:text-md lg:text-md 2xl:gap-4 gap-2 md:my-8 my-8 w-full">
                 <WelcomeMessage />
 
                 {/* <p>i&apos;ll save you some trouble and just cut to the chase:</p> */}
                 {/* <p>here&apos;s the long and short of it:</p> */}
-                <p>{"this is what's up:"}</p>
+                <p>i like to tinker and build stuff sometimes</p>
+                <div className="flex flex-col text-slate">
+                    <div className="flex flex-row items-center justify-between pb-2">
+                        <span className="font-semibold uppercase tracking-[0.25em] text-md text-slate-400">
+                            about me
+                        </span>
+                    </div>
+                    <ul className="text-white">
+                        <li>• 3rd year computer science student 🆘</li>
+                        <li>• Developer @ <a href="/projects?id=biztech">UBC Biztech 🤖</a></li>
+                        <li>• Engineering and Event Control @ <a href="/projects?id=mecha-mayhem">Mecha Mayhem 🚀</a></li>
+                        {/* <li>• Building ChalkMD, an open-sourced Obsidian port in Go 📝</li> */}
+                    </ul>
+                </div>
 
-                <ul>
-                    <li>• 3rd year computer science student 🆘</li>
-                    <li>• Developer @ UBC Biztech 🤖</li>
-                    <li>• Engineering and Event Control @ Mecha Mayhem 🚀</li>
-                    {/* <li>• Experimenting with ChooChoo, a tiny distributed db in Go 🚂</li> */}
-                    <li>• Building ChalkMD, an open-sourced Obsidian port in Go 📝</li>
-                    <li>• Scored a 3 once in basketball intramurals 🤫</li>
-                    {/* <li>• Former Undergrad TA @ UBC 📖</li> */}
-                    <li>• On the lookout for opportunities in SWE 💯</li>
-                </ul>
+                <div className="flex flex-col text-slate">
+                    <div className="flex flex-row items-center justify-between pb-2">
+                        <span className="font-semibold uppercase tracking-[0.25em] text-md text-slate-400">
+                            work
+                        </span>
+                    </div>
 
-                {/* <p>
-                    at my core, i&apos;m a tinkerer; i like tackling interesting problems head on, building solutions out, and pushing my limits in the process.
-                </p> */}
-                <p>
-                    feel free to explore around and reach out if you&apos;d like to connect!
-                </p>
-                {/* wow look at me i know how to use semicolons */}
+                    <div className="flex flex-col divide-y divide-slate/50">
+                        <div className="flex flex-row items-center justify-between pb-2 text-white">
+                            <span>Forward Deployed Software Engineer Intern @ Palantir</span>
+                            <span className="hidden sm:flex text-sm text-slate/70">Summer 2026</span>
+                        </div>
+                        <div className="flex flex-row items-center justify-between py-2 text-white">
+                            <span>Software Engineer Intern @ SAP</span>
+                            <span className="hidden sm:flex text-sm text-slate/70">Jan 2025 – Aug 2025</span>
+                        </div>
+                        <div className="flex flex-row items-center justify-between py-2 text-white">
+                            <span>Software Engineer Intern @ CBX Partners</span>
+                            <span className="hidden sm:flex text-sm text-slate/70">Oct 2023 – Apr 2024</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
             <Button
                 icon="/icons/connect.svg"
                 primary="#172147"
@@ -54,7 +72,7 @@ const Overlay = () => {
                 href="/contact"
             />
 
-            <span className="row mt-8 2xl:text-xl xl:text-lg">
+            <span className="row mt-8 2xl:text-lg xl:text-md">
                 or, check out some of my
                 <InternalLink href="projects">
                     <div className="text-[#4493F8] row-center ml-2 cursor-pointer">

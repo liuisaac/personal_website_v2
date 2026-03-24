@@ -44,7 +44,7 @@ const TimelineMarker = ({ containerRef, scrollY }) => {
 
     useEffect(() => {
         y.set(maxY);
-    }, [maxY]);
+    }, [maxY, y]);
 
     const currentY = y.get();
     const diff = Math.abs(maxY - currentY);

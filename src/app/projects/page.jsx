@@ -1,13 +1,12 @@
 import FadeWrapper from "@/components/ui/FadeWrapper";
 import Overlay from "@/components/projects/Overlay";
-import { Suspense, React} from "react";
 
 const page = () => {
     return (
         <FadeWrapper>
-            <Suspense fallback={<div></div>}>
+            <div className="min-h-screen w-screen flex items-start justify-center">
                 <Overlay />
-            </Suspense>
+            </div>
         </FadeWrapper>
     );
 };

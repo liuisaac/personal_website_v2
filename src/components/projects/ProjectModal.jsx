@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
+"use client";
+
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import React from "react";
 import Img from "../ui/Img";
 import Image from "next/image";
-import ProjectSection from "./ProjectSection";
-import articles from "../../constants/project_articles";
+import { articles } from "../../content/articles";
+import MdxRenderer from "../mdx/MdxRenderer";
 
-const ProjectModal = ({ content }) => {
-    const router = useRouter();
+const ProjectModal = ({ content, onClose, onNavigate }) => {
     const currentIndex = articles.findIndex((article) => article.id === content.id);
     const hasArticles = articles.length > 0;
     const safeCurrentIndex = currentIndex >= 0 ? currentIndex : 0;
@@ -22,17 +23,15 @@ const ProjectModal = ({ content }) => {
 
     const goToArticle = (article) => {
         if (!article) return;
-        const params = new URLSearchParams(window.location.search);
-        params.set("id", article.id);
-        router.replace(`?${params.toString()}`, { scroll: false });
+        onNavigate(article.id);
     };
 
     return (
         <>
-            <div className="2xl:w-[70em] xl:w-[50em] lg:w-[40em] w-[80vw] bg-charcoal my-16 rounded-xl col p-16">
+            <div className="2xl:w-[60em] xl:w-[50em] lg:w-[40em] w-[80vw] bg-charcoal my-16 rounded-xl col p-16">
                 <div
                     className="row gap-2 text-slate cursor-pointer"
-                    onClick={() => router.replace(`projects`, { scroll: false })}
+                    onClick={onClose}
                 >
                     <ArrowLeftIcon className="" />
                     <span className="text-xl text-center">back_to_projects</span>
@@ -57,11 +56,13 @@ const ProjectModal = ({ content }) => {
                     />
                 </div>
 
-                {content.body.map((section, index) => (
-                    <div key={index}>
-                        <ProjectSection subtitle={section.subtitle} body={section.body} src={section.src} href={section.href} />
+                {content.Component && (
+                    <div className="mt-8 text-xl text-slate">
+                        <MdxRenderer>
+                            <content.Component />
+                        </MdxRenderer>
                     </div>
-                ))}
+                )}
             </div>
 
             <div className="fixed right-6 bottom-6 z-[70] hidden md:flex select-none">

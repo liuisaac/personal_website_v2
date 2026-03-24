@@ -23,10 +23,6 @@ const Navbar = () => {
         setActive(newSegment);
     }, [location]);
 
-    useEffect(() => {
-        console.log("Menu state:", menu);
-    }, [menu]);
-
     const handleNavigation = (path) => {
         if (path === "home") {
             router.push("/");
@@ -68,7 +64,6 @@ const Navbar = () => {
             <nav className="lg:hidden w-full flex flex-row justify-end items-center bg-transparent z-50 pointer-events-auto fixed">
                 <div
                     onClick={() => {
-                        console.log("ran");
                         setMenu(!menu);
                     }}
                 >

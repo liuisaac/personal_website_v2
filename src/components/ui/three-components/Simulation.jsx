@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Particles from "./Particles";
 import {
@@ -20,30 +20,25 @@ const Simulation = ({ children }) => {
     const [mouseGravity, setMouseGravity] = useState(-0.2);
     const route = usePathname();
 
-    useEffect(() => {
-        if (route != "/") {
-            toggleGravity();
-        } else {
-            setGravity(positiveG);
-            setGravityToggle(true);
-            setMouseGravity(-0.2);
-        }
-    }, [route]);
+    const toggleGravity = useCallback(() => {
+        setGravityToggle((prev) => {
+            const next = !prev;
+            setGravity(next ? positiveG : negativeG);
+            setMouseGravity(next ? -0.2 : 0.2);
+            return next;
+        });
+    }, [negativeG, positiveG]);
 
-    const toggleGravity = () => {
-        if (gravity != positiveG) {
-            setGravity(positiveG);
-            setGravityToggle(true);
-            setMouseGravity(-0.2);
-        } else {
-            setGravity(negativeG);
-            setGravityToggle(false);
-            setMouseGravity(0.2);
-        }
-    };
+    useEffect(() => {
+        const isHome = route === "/";
+        const nextToggle = isHome;
+        setGravityToggle(nextToggle);
+        setGravity(nextToggle ? positiveG : negativeG);
+        setMouseGravity(nextToggle ? -0.2 : 0.2);
+    }, [route, positiveG, negativeG]);
 
     return (
-        <section className="dim-screen">
+        <section className="relative min-h-screen w-screen">
             <div className="fixed dim-screen z-50 pointer-events-none">
                 <Controls
                     gravity={gravityToggle}
@@ -71,9 +66,9 @@ const Simulation = ({ children }) => {
                 </div>
             </main>
 
-            <article className="absolute top-0 inset-x-0 z-20 flex items-center justify-center">
+            <div className="relative z-20 pointer-events-auto">
                 {children}
-            </article>
+            </div>
         </section>
     );
 };

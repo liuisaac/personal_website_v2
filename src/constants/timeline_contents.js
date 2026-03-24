@@ -22,7 +22,7 @@ const data = [
         ],
         location: "SAP Vancouver",
         src: "/timeline/sap.png",
-        title: "Cloud Engineer Intern",
+        title: "Software Engineer Intern",
     },
     {
         brief: "📖 CPSC 110 - Computation, Programs, and Programming",

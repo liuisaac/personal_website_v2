@@ -7,7 +7,7 @@ const Img = ({ alt = "", className, objectFit = "contain", src }) => {
             <Image
                 src={src}
                 alt={alt}
-                objectFit={objectFit}
+                style={{ objectFit }}
                 fill
             />
         </figure>

@@ -1,13 +1,6 @@
-"use client";
-
 import { Inconsolata, Poppins } from "next/font/google";
-import dynamic from 'next/dynamic';
 import "./globals.css";
-
-const Simulation = dynamic(
-  () => import('@/components/ui/three-components/Simulation'),
-  { ssr: false }
-);
+import ClientSimulation from "@/components/ClientSimulation";
 
 const inconsolata = Inconsolata({
     display: "swap",
@@ -34,7 +27,10 @@ export default function RootLayout({ children }) {
             <body
                 className={`${inconsolata.variable} ${poppins.variable} antialiased text-white font-mono`}
             >
-                <Simulation>{children}</Simulation>
+                <ClientSimulation />
+                <div className="relative z-20 pointer-events-auto min-h-screen">
+                    {children}
+                </div>
             </body>
         </html>
     );

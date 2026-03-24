@@ -43,4 +43,6 @@ export const fragmentShader = `
   }
 `;
 
-export default { fragmentShader, vertexShader };
+const shaders = { fragmentShader, vertexShader };
+
+export default shaders;

@@ -5,75 +5,106 @@ import Grid from "../ui/Grid";
 import Img from "../ui/Img";
 import PageContainer from "../ui/page/PageContainer";
 import PageHeader from "../ui/page/PageHeader";
-import LaptopScene from "./three/LaptopScene";
 import data from "../../constants/projects_grid";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
-import articles from "../../constants/project_articles";
-import { useSearchParams, useRouter } from "next/navigation";
+import { getArticleById } from "../../content/articles";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 import FadeWrapper from "../ui/FadeWrapper";
-
-const ButtonWrapper = ({ children, pid, router }) => {
-    const handleClick = () => {
-        const params = new URLSearchParams(window.location.search);
-        params.set("id", pid);
-        router.replace(`?${params.toString()}`, { scroll: false });
-    };
-
-    return <div onClick={handleClick}>{children}</div>;
-};
+import LaptopScene from "./three/LaptopScene";
 
 const Overlay = () => {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const [markdownContent, setMarkdownContent] = useState("");
 
+    // Read article from the current URL (safe for SSR)
+    const articleFromUrl = useCallback(() => {
+        if (typeof window === "undefined") return null;
+        const id = new URLSearchParams(window.location.search).get("id");
+        return id ? getArticleById(id) ?? null : null;
+    }, []);
+
+    // Initialise from URL so direct navigation (/projects?id=X) works immediately
+    const [activeArticle, setActiveArticle] = useState(articleFromUrl);
+
+    // Open a project modal: update state + push the id into the URL
+    const openArticle = useCallback(
+        (id) => {
+            const article = getArticleById(id);
+            if (!article) return;
+            setActiveArticle(article);
+            document.body.style.overflow = "hidden";
+            router.replace(`/projects?id=${id}`, { scroll: false });
+        },
+        [router]
+    );
+
+    // Close the modal: clear state + strip the id from the URL
+    const closeModal = useCallback(() => {
+        setActiveArticle(null);
+        document.body.style.overflow = "";
+        router.replace("/projects", { scroll: false });
+    }, [router]);
+
+    // Lock scroll on initial load if we opened with an id
     useEffect(() => {
-        if (!searchParams) return;
+        if (activeArticle) {
+            document.body.style.overflow = "hidden";
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-        try {
-            const article = articles.find(
-                (article) => article.id === searchParams.get("id")
-            );
+    // Sync state when the user presses browser back / forward
+    useEffect(() => {
+        const handlePopState = () => {
+            const article = articleFromUrl();
             if (article) {
-                setMarkdownContent(article);
+                setActiveArticle(article);
                 document.body.style.overflow = "hidden";
             } else {
+                setActiveArticle(null);
                 document.body.style.overflow = "";
             }
-            if (searchParams.get("id") === null) {
-                setMarkdownContent("");
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }, [searchParams]);
+        };
+        window.addEventListener("popstate", handlePopState);
+        return () => window.removeEventListener("popstate", handlePopState);
+    }, [articleFromUrl]);
+
+    // Portal the modal to document.body so it escapes the FadeWrapper's
+    // opacity-animation stacking context (opacity < 1 turns the parent into
+    // a containing-block for position:fixed children, breaking the overlay).
+    const modal = activeArticle
+        ? createPortal(
+              <motion.div
+                  initial={{ backdropFilter: "blur(0px)" }}
+                  animate={{ backdropFilter: "blur(10px)" }}
+                  transition={{ duration: 0.5 }}
+                  className="top-0 left-0 w-screen h-screen z-[100] col-center"
+                  style={{ position: "fixed" }}
+                  onClick={closeModal}
+              >
+                  <div
+                      className="max-h-screen"
+                      style={{ overflowY: "auto" }}
+                      onClick={(e) => e.stopPropagation()}
+                  >
+                      <FadeWrapper>
+                          <ProjectModal
+                              content={activeArticle}
+                              onNavigate={openArticle}
+                              onClose={closeModal}
+                          />
+                      </FadeWrapper>
+                  </div>
+              </motion.div>,
+              document.body
+          )
+        : null;
 
     return (
         <>
-            {markdownContent != "" && (
-                <motion.div
-                    initial={{ backdropFilter: "blur(0px)" }}
-                    animate={{ backdropFilter: "blur(10px)" }}
-                    transition={{ duration: 0.5 }}
-                    className="top-0 left-0 dim-screen z-50 col-center"
-                    style={{ position: "fixed" }}
-                    onClick={() => {
-                        router.replace(`projects`, { scroll: false });
-                    }}
-                >
-                    <div
-                        style={{ overflowY: "auto" }}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <FadeWrapper>
-                            <ProjectModal content={markdownContent} />
-                        </FadeWrapper>
-                    </div>
-                </motion.div>
-            )}
+            {modal}
 
             <div className="top-0 relative dim-screen col-center">
                 <PageContainer>
@@ -107,7 +138,7 @@ const Overlay = () => {
                                 8.2k visitors / y
                             </p>
                             {/* <MarkdownRenderer content={markdownContent} /> */}
-                            <ButtonWrapper router={router} pid={"mecha-mayhem"}>
+                            <div onClick={() => openArticle("mecha-mayhem")}>
                                 <Button
                                     icon={"/icons/external-link.svg"}
                                     primary={"#FF4D4D"}
@@ -115,10 +146,10 @@ const Overlay = () => {
                                     textStyles={"text-lg tracking-wide"}
                                     href={""}
                                 />
-                            </ButtonWrapper>
+                            </div>
                         </div>
                     </div>
-                    <Grid data={data} />
+                    <Grid data={data} onSelect={openArticle} />
                 </PageContainer>
             </div>
         </>

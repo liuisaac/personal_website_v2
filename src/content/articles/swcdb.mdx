@@ -1,0 +1,33 @@
+export const meta = {
+  id: "swcdb",
+  title: "SWC Disnake Bot",
+  date: "2023",
+  tech_stack: "Python, Flask",
+  thumbnail: "/grid/swc.png",
+  summary: "A Discord bot that streamlines parts ordering and uses a Bayesian typo-correction algorithm.",
+};
+
+## Project Overview 📋
+
+This project is a custom-built Discord bot designed to streamline the parts ordering process for our robotics club. It enables team members to submit parts requests directly through Discord, helping us manage inventory and order fulfillment efficiently.
+
+## A Simple Probability-Based Algorithm to Fix Misspelled Words 🧠
+
+This spelling corrector uses Bayesian probability to find the most likely correction for a misspelled word. For a given typo *w*, it selects the word *c* that maximizes:
+
+> P(c | w) ∝ P(w | c) × P(c)
+
+where P(c) is based on word frequency from a large corpus, and P(w | c) is based on the likelihood of typos (insertions, deletions, swaps, and replacements) measured by edit distance.
+
+This algorithm is ideal for correcting common typos in a small subset of words (ie: part names) and runs in O(n) time, where n is the number of words in the dictionary. Thus, we are able to avoid the use of ML or more expensive solutions that would require a considerbly larger dataset of typos and their corrections.
+
+## Features 🚀
+
+The bot includes features such as part request submission, inventory management, and order tracking. It also provides real-time updates and notifications to keep team members informed about their requests.
+
+## Tech Stack 🛠️
+
+The bot is built using Python and the Disnake library, which provides a simple and efficient way to interact with the Discord API. It also utilizes Flask for web server capabilities, allowing for easy integration with our existing systems.
+
+<RepoLink href="https://github.com/liuisaac/SWC-Disnake-Bot">View on GitHub</RepoLink>
+

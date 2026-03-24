@@ -1,21 +1,34 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useEffect, useMemo, useState } from "react";
 import ComputerMesh from "./ComputerMesh";
 
 const LaptopScene = () => {
     const [open, setOpen] = useState(false);
     const [width, setWidth] = useState(1000);
+    const [Canvas, setCanvas] = useState(null);
 
     useEffect(() => {
-        console.log("LaptopScene mounted");
-        console.log("Initial width:", window.innerWidth);
+        let alive = true;
+        import("@react-three/fiber")
+            .then((mod) => {
+                if (!alive) return;
+                setCanvas(() => mod.Canvas);
+            })
+            .catch(() => {
+                // If this fails for any reason (e.g. during prerender/export),
+                // keep rendering the placeholder container.
+            });
+        return () => {
+            alive = false;
+        };
+    }, []);
+
+    useEffect(() => {
         setWidth(Math.min(window.innerWidth * 2/3, 1000));
 
         const handleResize = () => {
             setWidth(Math.min(window.innerWidth * 2/3, 1000));
-            console.log("Resized width:", window.innerWidth);
         };
 
         window.addEventListener('resize', handleResize);
@@ -31,24 +44,33 @@ const LaptopScene = () => {
         }, 1000);
     }, []);
 
+    const canvasStyle = useMemo(
+        () => ({
+            backgroundColor: "transparent",
+            height: "100vh",
+            marginTop: "10em",
+            width: "60vw",
+        }),
+        []
+    );
+
     return (
         <div className="absolute top-0 right-0">
-            <Canvas
-                style={{
-                    backgroundColor: "transparent",
-                    height: "100vh",
-                    marginTop: "10em",
-                    width: "60vw",
-                }}
-                camera={{ fov: 70, position: [12, 10, 20], zoom: 1.3 }}
-            >
-                <ComputerMesh
-                    scale={{ height: width, width: width }}
-                    open={open}
-                />
-                <pointLight position={[0, 100, 100]} intensity={1000} />
-                <pointLight position={[-10, 100, 0]} intensity={30000} />
-            </Canvas>
+            {Canvas ? (
+                <Canvas
+                    style={canvasStyle}
+                    camera={{ fov: 70, position: [12, 10, 20], zoom: 1.3 }}
+                >
+                    <ComputerMesh
+                        scale={{ height: width, width: width }}
+                        open={open}
+                    />
+                    <pointLight position={[0, 100, 100]} intensity={1000} />
+                    <pointLight position={[-10, 100, 0]} intensity={30000} />
+                </Canvas>
+            ) : (
+                <div style={canvasStyle} />
+            )}
         </div>
     );
 };

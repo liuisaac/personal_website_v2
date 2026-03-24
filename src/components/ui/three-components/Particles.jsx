@@ -44,19 +44,21 @@ const ParticlesComponent = ({ G, mouseGMultiplier, mouseInfluenceRadius }) => {
     const raycasterRef = useRef(new THREE.Raycaster());
     const mouseRef = useRef(new THREE.Vector2(0, 0));
 
-    const onMouseMove = (e) => {
-        mouseRef.current.x = (e.clientX / size.width) * 2 - 1;
-        mouseRef.current.y = -(e.clientY / size.height) * 2 + 1;
-    };
-
-    const onTouchMove = (e) => {
-        if (e.touches.length > 0) {
-            mouseRef.current.x = (e.touches[0].clientX / size.width) * 2 - 1;
-            mouseRef.current.y = -(e.touches[0].clientY / size.height) * 2 + 1;
-        }
-    };
-
     useEffect(() => {
+        const onMouseMove = (e) => {
+            mouseRef.current.x = (e.clientX / size.width) * 2 - 1;
+            mouseRef.current.y = -(e.clientY / size.height) * 2 + 1;
+        };
+
+        const onTouchMove = (e) => {
+            if (e.touches.length > 0) {
+                mouseRef.current.x =
+                    (e.touches[0].clientX / size.width) * 2 - 1;
+                mouseRef.current.y =
+                    -(e.touches[0].clientY / size.height) * 2 + 1;
+            }
+        };
+
         window.addEventListener("mousemove", onMouseMove, false);
         window.addEventListener("touchmove", onTouchMove, false);
         return () => {

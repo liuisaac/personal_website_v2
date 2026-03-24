@@ -1,0 +1,86 @@
+export const meta = {
+  id: "mecha-mayhem",
+  title: "Mecha Mayhem",
+  date: "2025",
+  tech_stack: "Next, React, Node, TS, Python, HTML/CSS, AWS (EC2, Lambda, S3)",
+  thumbnail: "/thumbnails/mecha-mayhem.png",
+  summary: "Full-stack platform and automations for a large-scale international robotics competition.",
+};
+
+## Project Overview 📋
+
+Mecha Mayhem is a **3-day-long international robotics competition** seated in the heart of Calgary, Alberta. Over 200 of the top middle school, high school, and collegiate teams from around the world compete for limited spots at the VRC World Championship held in Dallas, Texas.
+
+This project's mission is to provide an engaging centralized platform for the **over 3000 comeptitors, audience members, and sponsors** to access all the information they need about the event.
+
+<StatGrid
+  stats={[
+    { label: "Event length", value: "3 days", hint: "International competition" },
+    { label: "Scale", value: "200+ teams", hint: "3000+ in attendance every year" },
+    { label: "Platform", value: "Web + automations", hint: "Content, schedules, match tooling" },
+  ]}
+/>
+
+<Carousel
+  images={[
+    { src: "/images/mecha-mayhem/mecha-people.jpg", alt: "Mecha Mayhem event", label: "Our team" },
+    { src: "/images/mecha-mayhem/figma.png", alt: "Figma mockups", label: "Design and UI" },
+    { src: "/images/mecha-mayhem/landing.png", alt: "Deployed landing page", label: "Deployed landing" },
+  ]}
+/>
+
+<RepoLink href="https://www.mechamayhem.ca/">Visit mechamayhem.ca</RepoLink>
+
+## Key Work 🔑
+
+- Designed and implemented full-stack architecture and automations
+- Reduced LCP by > 90% by leveraging dynamic imports, slashing bundle sizes by more than 66%
+- Deployed the frontend on Vercel, backend on AWS EC2 (later Lambda), AWS S3 for media storage, and Firebase Firestore for real-time NoSQL database
+- Automated match clips extraction from event livestreams using Tesseract OCR
+- Prototyped a mobile app for the event using React-Native
+- Platformed efforts that raised $80,000 in sponsorships annually
+
+<Tabs
+  tabs={[
+    {
+      label: "Frontend 💻",
+      content: (
+        <>
+          <ul>
+            <li>UI designed in Figma</li>
+            <li>Implemented in Next.js, using Tailwind CSS and Framer-Motion for styling and animation</li>
+            <li>Configured Next.js middleware to proxy <code>/api</code> requests to the backend endpoint</li>
+            <li>Optimized loading performance and bundle sizes with efficient asset management, SSR, and dynamic loading</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      label: "Backend",
+      content: (
+        <>
+          <ul>
+            <li>REST API built with Express.js and Firebase (Datastore mode), deployed on an Amazon EC2 instance</li>
+            <li>Used AWS S3 for file storage and Cloudflare for HTTPS + CDN performance</li>
+            <li>Configured reverse proxy routing over AWS API Gateway to serve the API under <code>/api</code> while maintaining HTTPS integrity
+            </li>
+            <li>Later migrated from monolith to Lambda-based serverless architecture to eliminate idle compute costs</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      label: "Stream Segmentation 💽",
+      content: (
+        <>
+          <ul>
+            <li>Developed a Python-based livestream clipper to auto-segment match footage using Tesseract OCR + FFmpeg</li>
+            <li>Parsed 150+ hours of competition streams and automatically uploaded results to S3 buckets</li>
+            <li>Designed for containerized deployment to ECS clusters for stream processing in parallel</li>
+          </ul>
+        </>
+      ),
+    },
+  ]}
+/>
+
