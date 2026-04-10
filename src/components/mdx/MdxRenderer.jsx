@@ -32,6 +32,10 @@ const H3 = (props) => (
     />
 );
 
+const P = ({ className = "", ...props }) => (
+    <p className={`my-4 ${className}`} {...props} />
+);
+
 const Ul = ({ className = "", ...props }) => (
     <ul
         className={`list-disc pl-6 my-4 space-y-2 ${className}`}
@@ -59,6 +63,7 @@ const components = {
     img: (props) => <Image alt={props.alt || ""} width={0} height={0} sizes="100vw" className="w-full h-auto" {...props} />,
     li: Li,
     ol: Ol,
+    p: P,
     ProjectSection,
     RepoLink,
     StatGrid,

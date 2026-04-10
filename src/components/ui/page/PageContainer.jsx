@@ -1,8 +1,11 @@
 import React from 'react'
 
-const PageContainer = ({ children }) => {
+const base =
+  '2xl:w-[40em] xl:w-[35em] lg:w-[32em] md:w-[30em] w-full md:px-0 px-10'
+
+const PageContainer = ({ children, className = '' }) => {
   return (
-    <div className='2xl:w-[70em] xl:w-[50em] md:w-[40em] w-full md:px-0 px-16 top-0 min-h-screen'>{children}</div>
+    <div className={[base, className].filter(Boolean).join(' ')}>{children}</div>
   )
 }
 
