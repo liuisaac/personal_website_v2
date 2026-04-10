@@ -3,6 +3,7 @@ import Img from "../ui/Img";
 import Button from "../ui/Button";
 import WelcomeMessage from "./WelcomeMessage";
 import InternalLink from "../ui/InternalLink";
+import Link from "next/link";
 
 const Overlay = () => {
     return (
@@ -35,8 +36,8 @@ const Overlay = () => {
                     </div>
                     <ul className="text-white">
                         <li>• 3rd year computer science student 🆘</li>
-                        <li>• Developer @ <a href="/projects?id=biztech">UBC Biztech 🤖</a></li>
-                        <li>• Engineering and Event Control @ <a href="/projects?id=mecha-mayhem">Mecha Mayhem 🚀</a></li>
+                        <li>• Developer @ <Link href="/projects/biztech">UBC Biztech 🤖</Link></li>
+                        <li>• Engineering and Event Control @ <Link href="/projects/mecha-mayhem">Mecha Mayhem 🚀</Link></li>
                         {/* <li>• Building ChalkMD, an open-sourced Obsidian port in Go 📝</li> */}
                     </ul>
                 </div>

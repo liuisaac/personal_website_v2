@@ -11,10 +11,10 @@ import Link from "next/link";
 const tabs = ["github", "linkedin", "email"];
 const mobile_tabs = ["_home", "_projects", "_work", "_contact"];
 const links = {
-  "github" : "https:///github.com/liuisaac", 
-  "linkedin" : "https://www.linkedin.com/in/liuisaac05/", 
-  "email" : "mailto:liuisaac05@gmail.com"
-}
+  "email" : "mailto:liuisaac05@gmail.com",
+  "github" : "https:///github.com/liuisaac",
+  "linkedin" : "https://www.linkedin.com/in/liuisaac05/"
+};
 
 const formatTabName = (tab) => tab.replace("_", "");
 
